@@ -1,0 +1,7 @@
+site_name: Gabriel Fior
+site_url: https://gabrielfior.github.io
+nav:
+  - Home: index.md
+  - About: about.md
+  - Projects: projects.md
+theme: material
