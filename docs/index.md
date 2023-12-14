@@ -1,17 +1,32 @@
-# Welcome to MkDocs
+# Hi, I'm Gabriel!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+I'm currently on a sabbatical, tinkering with Zero-Knowledge Proofs and AI Agents.
 
-## Commands
+Before that, I started, raised VC funds for and failed DeepBalancer, a web3 start-up applying Deep Learning to DeFi investing. As part of my technical CEO duties, I worked mostly on selling our product to clients, liasing with investors, formulating/backtesting potential financial strategies and writing smart contracts.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Previously I studied Software Engineering at Oxford, built software in finance and studied Physics at TUM.
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<p float="left">
+<a href="https://github.com/gabrielfior">
+<img src="images/square-github.svg" height="50" width="50" />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</a>
+  <a href="https://t.me/wiskkkk">
+  <img src="images/telegram.svg" height="50" width="50" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
+<a href="https://www.linkedin.com/in/gabrielfior/">
+  <img src="images/linkedin.svg" height="50" width="50" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
+  <a href="https://twitter.com/theGabrielFior">
+  <img src="images/square-x-twitter.svg" height="50" width="50" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
+    <a href="https://medium.com/@deepbalancer">
+  <img src="images/medium.svg" height="50" width="50" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
+   
+</p>

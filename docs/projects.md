@@ -1,0 +1,3 @@
+# Projects
+
+{{ blog_content }}
