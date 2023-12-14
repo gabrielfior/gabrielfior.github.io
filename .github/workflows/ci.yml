@@ -25,4 +25,5 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material mkdocs-blogging-plugin
+      - run: pip install https://github.com/mitya57/python-markdown-math/archive/master.zip
       - run: mkdocs gh-deploy --force
