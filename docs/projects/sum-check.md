@@ -1,12 +1,12 @@
 ---
-title: Baby Sum-Check
+title: Sum-Check
 description: Simple, academic implementation of the Sum-Check protocol
 date: 2023-12-14
 tags:
     - zero-knowledge
 ---
 
-# Baby Sum-Check
+# Sum-Check
 
 [Github repo](https://github.com/gabrielfior/baby-sumcheck/blob/main/sum-check_sympy.py)
 
@@ -16,7 +16,7 @@ I'm writing this post as an introduction to the Sum-Check protocol.
 
 Although there are many references on Sum-Check (see [original paper](https://dl.acm.org/doi/10.1145/146585.146605), or [link](https://semiotic.ai/articles/sumcheck-tutorial/) or many others), I decided to write this in a hopefully simpler way for people getting started in Zero-Knowledge to understand.
 
-I also highlight the excellent [manuscript](https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.html) from Justin Thaler that I used as reference during my learning.
+I also highlight the excellent [manuscript](https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.html) from Justin Thaler that I used as reference during my learning, as well as the very helpful discussions with [Diego Kingston](https://twitter.com/zkdiegokingston) .
 
 
 ## Math background
@@ -64,9 +64,6 @@ First, let's calculate \(H\). We evaluate \(H\) at all points in the finite fiel
 
 Now, we describe how the protocol takes place, so the prover \(P\) convinces the verifier \(V\) that \(H=12\). The key to understand sumcheck is to observe that it's a recursive protocol, i.e. we have multiple rounds (1 per variable of the polynomial), and on each round we will "transform" the polynomial from \(v\) variables (in our example, \(v=3\)) to 1 variable, and evaluate this transformed polynomial in our entire finite field (i.e. at points 0 and 1).
 
-DELETE ME
-\(P\)
-
 ### Start of protocol
 
 - \(P\) sends - \(V\) the claimed value of \(H\), in our case 12.
@@ -86,9 +83,6 @@ The prover calculates a "transformed" version of the polynomial (given by \(s_1\
 - Verifier draws a random variable \(r_1\) from \(\mathbb{F}\) and sends it to P (let's assume \(r_1 = 2\))
 
 
-TODO
-- 
-
 ### Second round - \(x_2\)
 
 Again, prover calculates "transformed" version of polynomial \(s_2\), this time using the random \(r_1\) value given by the verifier. Note that again the \(s\) polynomial is univariate.
@@ -100,9 +94,12 @@ Again, prover calculates "transformed" version of polynomial \(s_2\), this time 
 
 - Prover sends polynomial \(s_2(x_2)\) to the verifier
 - Verifier checks that \(s_2(0) + s_2(1)\) = \(s_1(r_1)\)
+    
+    > Here, observe that the verifier does not **compute** \(s_1(r_1)\). Instead, the verifier gets those values from the prover and simply verifies that the left side and right side match.
+
 - Verifier draws a random variable \(r_2\) from \(\mathbb{F}\) and sends it to P (let's assume \(r_2 = 3\))
 
-### Third round - \(x3\)
+### Third round - \(x_3\)
 
 Again, prover calculates "transformed" version of polynomial \(s_3\), this time using the random \(r_1\) and \(r_2\) values given by the verifier. Note that again the \(s\) polynomial is univariate.
 
@@ -120,8 +117,49 @@ Again, prover calculates "transformed" version of polynomial \(s_3\), this time 
 
 - Verifier has to check that \(s3(r_3) = g(r_1,r_2,r_3) = g(2,3,6)\) 
 
-
 This is the power of the sumcheck protocol - the verifier is able to evaluate \(g\) at \(r_1,r_2,r_3\) via a single oracle query, much more efficient than calculating sums on every round for \(s_1\),\(s_2\) and so forth.
 
+### Code implementation
+
+I did a [simple implementation](https://github.com/gabrielfior/baby-sumcheck/blob/main/sum-check_sympy.py) in Python of the sumcheck protocol leveraging the [sympy](https://www.sympy.org/en/index.html) library for polynomial implementation. The code is reproduced below.
+
+```python
+# Initialization
+x1, x2, x3 = symbols("x1 x2 x3")
+poly = Poly(2*x1**3 + x1*x3 + x2*x3)
+idx_to_vars = {0: x3, 1: x2, 2: x1}
+p = Prover(poly, idx_to_vars)
+v = Verifier()
+num_of_rounds = len(poly.free_symbols)
+
+### Round 1
+# Prover (P) sends value of sum to verifier (V)
+total_sum = p.calculate_sum(3)
+random_values = {}
+vars_to_iterate = num_of_rounds-1
+prev_s = total_sum
+random_values_store = [2,3,6]
+random_value = 0
+for round_idx in range(3):
+    s = p.calculate_sum(vars_to_iterate, random_values)
+    # Verifier checks that s1(0) + s1(1) = 12
+    v.verify_univariate_poly(s, prev_s, random_value)
+    random_value = random_values_store.pop(0)
+    # We fetch the random_value idx in desc order
+    x_variable = idx_to_vars[num_of_rounds-round_idx-1]
+    random_values[x_variable] = random_value
+    prev_s = s
+    vars_to_iterate -= 1
+
+# Final round, verifies executes oracle query
+result_from_oracle = Oracle().evaluate_polynomial(poly, random_values)
+# Verifier checks that s3(6) = g(r1,r2,r3)
+v.assert_poly_matches_external_query(s, random_value, result_from_oracle)
+```
 
 
+### Conclusion
+
+In this post, I tried to explain the sumcheck protocol with an example from Thaler's [manuscript](https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.html), so that one can easier grasp the main concepts.
+
+I also recommend this [article](https://blog.lambdaclass.com/have-you-checked-your-sums/) from Lambdaclass which discussed Sumcheck in greater depth.
