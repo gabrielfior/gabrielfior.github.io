@@ -8,21 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://gabrielfior.github.io/projects/uniswap2/">
+        <link rel="canonical" href="https://gabrielfior.github.io/ai/">
+      
+      
+        <link rel="prev" href="../projects/">
       
       
       
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
     
     
       
-        <title>Uniswap LP positions as TradFi instruments - (2/2) - Gabriel Fior</title>
+        <title>AI - Gabriel Fior</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
@@ -41,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#synthetic-options-using-uniswap-v3" class="md-skip">
+        <a href="#ai" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Gabriel Fior" class="md-header__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+    <a href=".." title="Gabriel Fior" class="md-header__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Uniswap LP positions as TradFi instruments - (2/2)
+              AI
             
           </span>
         </div>
@@ -134,7 +136,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Gabriel Fior" class="md-nav__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+    <a href=".." title="Gabriel Fior" class="md-nav__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -152,7 +154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -172,7 +174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -192,7 +194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../projects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -209,10 +211,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../ai/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -221,6 +232,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -242,23 +254,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#synthetic-options-using-uniswap-v3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Synthetic Options using Uniswap v3
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -273,23 +270,18 @@
                   
 
 
-  <h1>Uniswap LP positions as TradFi instruments - (2/2)</h1>
-
-<h2 id="synthetic-options-using-uniswap-v3">Synthetic Options using Uniswap v3</h2>
-<p>Reference article -&gt; <a href="https://lambert-guillaume.medium.com/synthetic-options-and-short-calls-in-uniswap-v3-a3aea5e4e273">link</a></p>
-<p>In this article, the main discussion revolves around mathematical finance and the put-call parity. Please check back the article or this <a href="https://www.investopedia.com/terms/p/putcallparity.asp">other article</a> for more details, but the basic idea is that there is symmetry between options having the same strike price and expiration date, so that one can combine options with shorting/longing stocks to produce different payoffs. See the image below for an interesting way to create an exposure that is equivalent to a long stock (also known as “synthetic long stock”):</p>
-<p><img alt="image1" src="https://bafkreicgf3q7wcee55ji3mhgpeazbi25uat6wbx5rg4qzi46pin527r4wi.ipfs.nftstorage.link/" /></p>
-<p>Having asserted put-call parity, the next step was to illustrate other interesting options trading strategies, like <a href="https://www.investopedia.com/terms/s/strangle.asp">strangles</a> and <a href="https://www.investopedia.com/terms/s/straddle.asp">straddles</a>. It’s straightforward to understand those constructs if you simply add the payoffs of each instrument together.</p>
-<p>It’s however quite interesting to see that, by simply leveraging Uniswap v3 LP positions (which are actually NFTs) and long/short tokens, one is able to use complex option trading strategies, used extensively in TradFi.</p>
+<h1 id="ai">AI</h1>
+<p>AI experiments I've been conducting lately. Refer to this <a href="https://github.com/gabrielfior/ai-experiments/">repository</a> for all the code files.</p>
+<p><strong>Karpathy zero-to-hero course</strong></p>
+<ul>
+<li><a href="lecture2/">Lecture 2</a></li>
+</ul>
 
 
 
 
 
 
-
-  
-  
 
 
 
@@ -330,10 +322,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      <script src="../assets/javascripts/bundle.af256bd8.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
