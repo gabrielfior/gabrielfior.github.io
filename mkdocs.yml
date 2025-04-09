@@ -18,8 +18,6 @@ plugins:
       features:
         tags: {}
 
-  - mkdocs-jupyter
-
 markdown_extensions:
     - mdx_math
     - pymdownx.highlight:
