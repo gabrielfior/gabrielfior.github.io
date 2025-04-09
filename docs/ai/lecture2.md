@@ -1,4 +1,4 @@
-# Lecture 2
+# Lecture 2 - Andrej Karpathy's course
 
 The source code is copied below (from a [Marimo](https://marimo.io/) notebook) - in between the code blocks, I also added some notes which contain the extra information I parsed from multiple LLM reasoning efforts (NotebookLM + Gemini inside Colab)
 
