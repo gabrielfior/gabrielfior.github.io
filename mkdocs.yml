@@ -1,5 +1,7 @@
 site_name: Gabriel Fior
 site_url: https://gabrielfior.github.io
+docs_dir: docs
+use_directory_urls: false
 nav:
   - Home: index.md
   - About: about.md
@@ -19,7 +21,8 @@ plugins:
         tags: {}
 
 markdown_extensions:
-    - mdx_math
+    - pymdownx.arithmatex:
+        generic: true
     - pymdownx.highlight:
         anchor_linenums: true
         line_spans: __span
@@ -30,3 +33,5 @@ markdown_extensions:
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
