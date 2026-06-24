@@ -44,7 +44,7 @@ The P holder's claim is the lower, flattening portion of the ETH diagonal. In US
 
 ## Prediction Markets Produce the Same Curve Family
 
-Before a binary market resolves, a YES token does not discontinuously jump from $0 to $1 at the strike. Its live price equals implied probability — a smooth "soft step" that sharpens into a hard step only as expiry approaches (\(\tau \to 0\)).
+Before a binary market resolves, a YES token does not discontinuously jump from \$0 to \$1 at the strike. Its live price equals implied probability — a smooth "soft step" that sharpens into a hard step only as expiry approaches (\(\tau \to 0\)).
 
 For a market of the form "ETH ≥ K at time T," the YES price tracks:
 
@@ -60,13 +60,13 @@ $$q(S) \approx P(\text{ETH}_T \geq K)$$
 
 Consider one market:
 
-**"Will ETH ≥ $1,000 on 01.07.2026?"**
+**"Will ETH ≥ \$1,000 on 01.07.2026?"**
 
-At expiry the YES token pays $0 below the strike and $1 at or above — a single hard step.
+At expiry the YES token pays \$0 below the strike and \$1 at or above — a single hard step.
 
 ![Single YES token step payoff](stablecoin-via-pms-images/tweet3-01-single-yes-step.png)
 
-*Figure 3. Payoff of one YES token at strike K = $1,000: zero on [0, 1000), one on [1000, ∞).*
+*Figure 3. Payoff of one YES token at strike K = \$1,000: zero on [0, 1000), one on [1000, ∞).*
 
 One binary alone is insufficient. It becomes useful as a **building block** when combined with others.
 
@@ -74,7 +74,7 @@ One binary alone is insufficient. It becomes useful as a **building block** when
 
 ## Reconstruction: Stacked Strikes
 
-With ETH at $2,000, a basket can hold YES tokens at rising strikes ($1,000, $1,500, $2,000, …) with decreasing weights at higher strikes.
+With ETH at \$2,000, a basket can hold YES tokens at rising strikes (\$1,000, \$1,500, \$2,000, …) with decreasing weights at higher strikes.
 
 | Phase | Basket behavior |
 |---|---|
@@ -89,13 +89,13 @@ With ETH at $2,000, a basket can hold YES tokens at rising strikes ($1,000, $1,5
 
 ## Worked Example: Basket Behavior Across Spot Moves
 
-Assume a basket marked near $1 with ETH at $2,000 and strikes placed below spot (approximately $1,000–$1,500).
+Assume a basket marked near \$1 with ETH at \$2,000 and strikes placed below spot (approximately \$1,000–\$1,500).
 
 | ETH spot | Basket USD mark | Mechanism |
 |---|---|---|
-| $3,000 | ~$1 | Stable leg has saturated; holder forfeits further ETH upside |
-| $1,200 | ~$1 | Strike buffer still intact |
-| Below strikes | → $0 | Basket loses stable behavior; payoff becomes ETH-like on the downside |
+| \$3,000 | ~\$1 | Stable leg has saturated; holder forfeits further ETH upside |
+| \$1,200 | ~\$1 | Strike buffer still intact |
+| Below strikes | → \$0 | Basket loses stable behavior; payoff becomes ETH-like on the downside |
 
 **Above the strike ladder, the basket is stable. Below it, the holder bears ETH downside.** This is the fundamental tradeoff of the construction.
 
@@ -123,7 +123,7 @@ On Vitalik's curve, the derivative decays toward zero in the flat tail — USD v
 
 *Figure 5. Left: derivative of Vitalik's payoff, decaying to zero in the flat region. Right: \(\partial/\partial S \sum w_i \cdot \mathbf{1}\{S \geq K_i\} = \sum w_i \cdot \delta(S - K_i)\) — impulses at each strike whose smoothed envelope reproduces the same decaying slope.*
 
-The basket achieves "almost flat" USD sensitivity in the target band. Converting that into a **hard $1 peg** — exact rather than approximate — remains an open engineering problem.
+The basket achieves "almost flat" USD sensitivity in the target band. Converting that into a **hard \$1 peg** — exact rather than approximate — remains an open engineering problem.
 
 ---
 
