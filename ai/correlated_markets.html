@@ -1,0 +1,507 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gabrielfior.github.io/ai/correlated_markets.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Uncovering Market Insights with Correlated Markets - Gabriel Fior</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#uncovering-market-insights-with-correlated-markets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Gabriel Fior" class="md-header__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gabriel Fior
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Uncovering Market Insights with Correlated Markets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Gabriel Fior" class="md-nav__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gabriel Fior
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#thinkthoroughlyagent-finding-semantic-similarity-with-pinecone" class="md-nav__link">
+    <span class="md-ellipsis">
+      ThinkThoroughlyAgent: Finding Semantic Similarity with Pinecone
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ThinkThoroughlyAgent: Finding Semantic Similarity with Pinecone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#our-integration-a-technical-look" class="md-nav__link">
+    <span class="md-ellipsis">
+      Our Integration: A Technical Look
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployablearbitrageagent-exploiting-price-discrepancies" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeployableArbitrageAgent: Exploiting Price Discrepancies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeployableArbitrageAgent: Exploiting Price Discrepancies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-two-paths-to-a-smarter-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion: Two Paths to a Smarter Agent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-our-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explore Our Work
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="uncovering-market-insights-with-correlated-markets">Uncovering Market Insights with Correlated Markets</h1>
+<p>In the world of prediction markets, gaining an edge requires making sense of a vast landscape of questions. Our Prediction Market Agent achieves this by analyzing related markets to gain context and identify profitable opportunities.</p>
+<p>Our tooling employs two distinct but complementary approaches to this challenge: the <code>ThinkThoroughlyAgent</code> uses <a href="https://pinecone.io">Pinecone's</a> semantic search to find topically similar questions, while the <code>DeployableArbitrageAgent</code> uses a language model to find logically correlated markets and exploit price discrepancies.</p>
+<h2 id="thinkthoroughlyagent-finding-semantic-similarity-with-pinecone"><code>ThinkThoroughlyAgent</code>: Finding Semantic Similarity with Pinecone</h2>
+<p>Often, the answer to one prediction market question can be informed by the outcomes of other, similar questions. To tackle this, we've integrated <a href="https://www.pinecone.io/">Pinecone</a>, a vector database designed for high-performance similarity search, into our <code>ThinkThoroughlyAgent</code>. This allows our agent to quickly find and analyze markets with semantically similar questions, leading to more accurate predictions. Also worth noting that other alternatives for vector databases, like <a href="https://www.trychroma.com/">Chroma</a>, could also have been used - we went with Pinecone for simplicity and ease-of-integration with <a href="https://python.langchain.com/docs/introduction/">Langchain</a>.</p>
+<h3 id="our-integration-a-technical-look">Our Integration: A Technical Look</h3>
+<p>The <code>ThinkThoroughlyAgent</code> is designed for deep analysis. 
+1. Before it processes new markets, it ensures its knowledge base of past markets is up-to-date. The before_process_markets method in the agent's deployment configuration calls a handler to manage this process (highlighted line).</p>
+<p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">DeployableThinkThoroughlyAgentBase</span><span class="p">(</span><span class="n">DeployableTraderAgent</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">agent_class</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">ThinkThoroughlyBase</span><span class="p">]</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="c1">### hidden code</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">before_process_markets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">market_type</span><span class="p">:</span> <span class="n">MarketType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">pinecone_handler</span><span class="o">.</span><span class="n">insert_all_omen_markets_if_not_exists</span><span class="p">()</span>
+</span></span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">before_process_markets</span><span class="p">(</span><span class="n">market_type</span><span class="o">=</span><span class="n">market_type</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<a href="https://github.com/gnosis/prediction-market-agent/blob/main/prediction_market_agent/agents/think_thoroughly_agent/deploy.py#L32">Source code</a></p>
+<p>This command triggers our custom <a href="https://github.com/gnosis/prediction-market-agent/blob/main/prediction_market_agent/db/pinecone_handler.py#L28"><code>pinecone_handler</code></a> to fetch markets from <a href="https://presagio.pages.dev/">Omen</a> (via Subgraph data fetching), a popular prediction market platform, and store them as vector embeddings in our Pinecone index (using the Pinecone Python SDK).</p>
+<p>To ensure our data is clean and consistent, we use the <code>PineconeMetadata</code> Pydantic model to structure the information before creating the embedding.</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">PineconeMetadata</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll">    <span class="n">question_title</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="n">market_address</span><span class="p">:</span> <span class="n">HexAddress</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="n">close_time_timestamp</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="nd">@staticmethod</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">from_omen_market</span><span class="p">(</span><span class="n">market</span><span class="p">:</span> <span class="n">OmenMarket</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PineconeMetadata&quot;</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>        <span class="k">return</span> <span class="n">PineconeMetadata</span><span class="p">(</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>            <span class="n">question_title</span><span class="o">=</span><span class="n">market</span><span class="o">.</span><span class="n">question_title</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a>            <span class="n">market_address</span><span class="o">=</span><span class="n">market</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a>            <span class="n">close_time_timestamp</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">close_time</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()),</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<p><a href="https://github.com/gnosis/prediction-market-agent/blob/2841708c51514c40a6a1f49fc4ff91e74e374633/prediction_market_agent/agents/think_thoroughly_agent/models.py#L7">Source code</a></p>
+<p>By creating a vector from the <code>question_title</code>, we can use Pinecone's similarity search to find markets that are semantically related, even if they don't share exact keywords. Those markets are then finally inserted into the agent's context, expanding its understanding of the current market situation. Additional context could be obtained by including metadata about the market, such as <code>description</code>, but unfortunately this metadata is not always available nor consistent.</p>
+<h2 id="deployablearbitrageagent-exploiting-price-discrepancies"><code>DeployableArbitrageAgent</code>: Exploiting Price Discrepancies</h2>
+<p>While the ThinkThoroughlyAgent seeks informational advantages, our <code>DeployableArbitrageAgent</code> has a more direct goal: to find and exploit risk-free profit opportunities. This agent specializes in identifying pairs of markets whose outcomes are highly correlated but whose prices have temporarily diverged.</p>
+<p>This is classic arbitrage. For example, if two markets are asking the same question in a slightly different way, their probabilities should be nearly identical. If they're not, the agent can buy the underpriced outcome in one market and the underpriced outcome in the other (which would be the opposite bet) to lock in a guaranteed profit, regardless of the final result.</p>
+<h3 id="how-it-works">How It Works</h3>
+<p>The DeployableArbitrageAgent uses a large language model (LLM) to assess the relationship between two market questions. It uses a specific, structured prompt to determine if the markets are correlated.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">PROMPT_TEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Given two markets, MARKET 1 and MARKET 2, provide a boolean</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2"> value that  represents the correlation between these two markets&#39; outcomes. </span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2"> Return True if the outcomes are perfectly or nearly perfectly correlated,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">  meaning there is a high probability that both markets resolve to the same</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s2">  outcome. Return False if the outcomes are perfectly or nearly perfectly </span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s2">  inversely correlated, and finally return None if the correlation is weak or </span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s2">  non-existent.</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s2">Correlation can also be understood as the conditional probability </span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s2">that market 2 resolves to YES, given that market 1 resolved to YES.</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="s2">In addition to the correlation value, explain the reasoning behind your decision.</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="s2">[MARKET 1]</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="si">{main_market_question}</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s2">[MARKET 2]</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="si">{related_market_question}</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="s2">Follow the formatting instructions below for producing an output</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="s2"> in the correct format.</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="si">{format_instructions}</span><span class="s2">&quot;&quot;&quot;</span>
+</span></code></pre></div>
+<p><a href="https://github.com/gnosis/prediction-market-agent/blob/main/prediction_market_agent/agents/arbitrage_agent/prompt.py">Source code</a></p>
+<p>If the LLM confirms a high correlation, the agent uses the logic defined in the 
+<a href="https://github.com/gnosis/prediction-market-agent/blob/main/prediction_market_agent/agents/arbitrage_agent/data_models.py#L24"><code>CorrelatedMarketPair</code></a> data model to act. This model includes methods to:</p>
+<ul>
+<li>Calculate the potential profit from the price difference between the two markets.</li>
+<li>Determine the optimal betting directions (e.g., bet YES on market 1 and NO on market 2).</li>
+<li>Calculate the exact bet amounts for each market to guarantee a profit by balancing the positions according to their respective probabilities.</li>
+</ul>
+<h2 id="conclusion-two-paths-to-a-smarter-agent">Conclusion: Two Paths to a Smarter Agent</h2>
+<p>These two agents demonstrate a powerful dual-strategy approach. The <code>ThinkThoroughlyAgent</code> uses Pinecone's semantic search for an informational advantage, enriching its context to make better-educated predictions. In contrast, the <code>DeployableArbitrageAgent</code> uses an LLM to find logically correlated markets for a financial advantage, placing calculated bets across a pair of markets to exploit price inefficiencies.</p>
+<p>Together, these approaches create a more robust and versatile prediction market platform, showcasing how different AI techniques can be combined to master the complexities of forecasting.</p>
+<h2 id="explore-our-work">Explore Our Work</h2>
+<p>We invite you to explore the open-source repositories behind these agents and share your feedback. You can also view our agents' performance on the Gnosis network.</p>
+<p>Repositories:</p>
+<ul>
+<li><a href="https://github.com/gnosis/prediction-market-agent-tooling">Prediction Market Agent Tooling</a></li>
+<li><a href="https://github.com/gnosis/prediction-market-agent">Prediction Market Agents</a></li>
+</ul>
+<p>Performance Dashboards:</p>
+<ul>
+<li><a href="https://dune.com/gnosischain_team/ai-agents-overview-omen-prediction-markets">AI Agents Overview on Dune</a></li>
+<li><a href="https://dune.com/gnosischain_team/gnosis-labs">Gnosis AI Team Dune Dashboards</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
