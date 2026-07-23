@@ -9,11 +9,9 @@ tags:
     - research
 ---
 
-# Futarchy: Allocating Budget Earmarks by Social Impact
-
-> 🇬🇧 English · 🇧🇷 Português — use the tabs below to switch language. / Use as abas abaixo para trocar de idioma.
-
 === "English"
+
+    # Futarchy: Allocating Budget Earmarks by Social Impact
 
     > **tl;dr:** Brazil's federal government commits roughly R\$25 billion a year through *emendas parlamentares* — discretionary budget earmarks that legislators direct to specific recipients. In practice, much of it is captured or misdirected. This proposes a platform where earmark proposals compete in a prediction market that estimates which one produces the greatest social impact, following Robin Hanson's futarchy principle: **vote on values, bet on beliefs.**
 
@@ -139,6 +137,8 @@ tags:
     - Emendas Parlamentares, Portal da Transparência (Government of São Paulo) — <https://www.transparencia.sp.gov.br/home/emendasparlamentares>
 
 === "Português"
+
+    # Futarquia: Alocando Emendas Parlamentares por Impacto Social
 
     > **tl;dr:** O governo federal brasileiro empenha cerca de R\$25 bilhões por ano em *emendas parlamentares* — repasses discricionários que parlamentares direcionam a destinos específicos. Na prática, boa parte é capturada ou desviada. Aqui proponho uma plataforma em que propostas de emenda competem num mercado preditivo que estima qual delas gera o maior impacto social, seguindo o princípio da futarquia de Robin Hanson: **vote nos valores, aposte nas crenças.**
 
