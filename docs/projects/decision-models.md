@@ -60,13 +60,13 @@ flowchart LR
 
 **How this differs from Strands**
 
-Very little. Both start from [Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3.5-2B-Base), add a rank-16 LoRA, and replace the LM head with a ~1M-parameter pointer head ([model card](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v19)). Both follow the recipe of [Kev](https://github.com/jaredpalmer/kev), the open Jev-style family.
+Very little. Both start from [Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3.5-2B-Base), add a rank-16 LoRA, and replace the LM head with a ~1M-parameter pointer head ([model card](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v19)). Our recipe follows [Kev](https://github.com/jaredpalmer/kev), the open Jev-style family.
 
 | | Strands Decider 2B | This work |
 |---|---|---|
 | Torso, LoRA, pointer head | Qwen3.5-2B-Base, r16, ~1M head | same |
-| Read-out | Final hidden states ([repo README](https://github.com/strands-labs/strands-decider)) | LayerNorm'd states from layer 16 |
-| Size | full, 1.9B | cut to 16 layers, vocab trimmed: 1.12B |
+| Read-out | Hidden states at the `<answer>` token and each option's last token; layer not documented | LayerNorm'd states from layer 16 |
+| Size | 1.9B (Qwen3.5-2B-Base torso, per their docs) | cut to 16 layers, vocab trimmed: 1.12B |
 | Training rows | ~123k | 8k-9.9k from Kev's decision-v7 |
 | Inference | one pass | two option orders averaged; 3-seed ensemble for the top score |
 
@@ -74,7 +74,7 @@ Very little. Both start from [Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3
 
 | | Strands Decider 2B | This work |
 |---|---|---|
-| Rows | ~123k | 8k (9.9k with two held-out families: TREC, legacy policy) |
+| Rows | ~123k (100,449 + 12,909 + 3,815 + 6,166, per their [architecture doc](https://github.com/strands-labs/strands-decider/blob/main/docs/architecture.md)) | 8k (9.9k with two held-out families: TREC, legacy policy) |
 | Source | Public datasets (inventory in their GitHub repo) | [decision-v7](https://huggingface.co/datasets/jaredpalmer/kev-suites) (Kev): 10 public datasets (AG News, Amazon, Banking77, BoolQ, DBpedia, IMDB, MNLI, SST-5, TREC, Yelp) plus generated policy and rule examples. No distillation from other decision models. |
 
 **Contamination check.** JevBench items are authored from scratch; decision-v7 comes from public NLP datasets plus generated rows. None of the 231 public JevBench items shares a run of 8 words with any of the 12,576 decision-v7 records.
@@ -98,7 +98,8 @@ Caveats:
 - The edge comes from 24% more data (the two held-out families), not architecture. On the original 8k rows, every variant ties Strands.
 - The 0.8B model gained nothing from the extra data; the data lever needs capacity.
 - Strands is better calibrated (Brier 0.342 vs 0.364), and I did not close that gap.
-- I looked at JevBench at milestones and used it to pick the torso, the two-order averaging, and the 9.9k-row training set. That adapts our choices to these 231 items, so single-seed scores (such as the best seed's 171) are the most exposed. Strands iterated on it too (v17 to v19).
+- I compare against the released v19. Their results page also lists a v20 at 169/231.
+- I looked at JevBench at milestones and used it to pick the torso, the two-order averaging, and the 9.9k-row training set. That adapts our choices to these 231 items, so single-seed scores (such as the best seed's 171) are the most exposed. Strands iterated on it too: their [results page](https://github.com/strands-labs/strands-decider/blob/main/evaluation/results.md) reports v17 at 164/231 and v19 at 167/231.
 - Generated policy and compositional rows may resemble JevBench's policy and routing items in structure. That is a style match, not leakage.
 - I could score only the public split; the private split is out of reach.
 
