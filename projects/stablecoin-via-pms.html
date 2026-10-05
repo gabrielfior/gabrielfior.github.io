@@ -1,0 +1,593 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Approximating a debt-free stablecoin payoff from binary YES tokens">
+      
+      
+      
+        <link rel="canonical" href="https://gabrielfior.github.io/projects/stablecoin-via-pms.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Stablecoin via Prediction Markets - Gabriel Fior</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#stablecoin-via-prediction-markets-debt-free-pegs-from-binary-outcome-tokens" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Gabriel Fior" class="md-header__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gabriel Fior
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Stablecoin via Prediction Markets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Gabriel Fior" class="md-nav__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gabriel Fior
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background-options-instead-of-debt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background: Options Instead of Debt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-target-payoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Target Payoff
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-markets-produce-the-same-curve-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prediction Markets Produce the Same Curve Family
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-block-a-single-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Block: A Single Binary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconstruction-stacked-strikes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reconstruction: Stacked Strikes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-basket-behavior-across-spot-moves" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked Example: Basket Behavior Across Spot Moves
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-management-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Active Management Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stability-intuition-derivative-goes-to-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stability Intuition: Derivative Goes to Zero
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="stablecoin-via-prediction-markets-debt-free-pegs-from-binary-outcome-tokens">Stablecoin via Prediction Markets: Debt-Free Pegs from Binary Outcome Tokens</h1>
+<blockquote>
+<p><strong>tl;dr:</strong> Vitalik Buterin proposes splitting 1 ETH into two option-backed claims — one stable (P), one upside (N) — with no CDP, liquidations, or collateral ratios. We show that the stable leg's payoff shape can be approximated by a weighted basket of YES tokens from existing binary prediction markets. The curve geometry works; strike management, oracle risk, and rebalancing fees determine whether it is deployable.</p>
+</blockquote>
+<hr />
+<h2 id="background-options-instead-of-debt">Background: Options Instead of Debt</h2>
+<p>In <a href="https://ethresear.ch/t/building-index-tracking-assets-on-top-of-options-instead-of-debt/25036"><em>Building index-tracking assets on top of options instead of debt</em></a>, Vitalik Buterin describes a stablecoin design that does not rely on over-collateralized debt positions. The construction splits 1 ETH along the diagonal into two claims that always sum back to ETH:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Role</th>
+<th>Payoff shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P</strong></td>
+<td>Stable leg</td>
+<td>Concave: USD value rises with ETH at first, then saturates</td>
+</tr>
+<tr>
+<td><strong>N</strong></td>
+<td>Upside leg</td>
+<td>Linear: holder keeps full ETH exposure above the split</td>
+</tr>
+</tbody>
+</table>
+<p>There is no liquidation threshold and no collateral ratio to monitor. The stable behavior comes from the <strong>geometry of the payoff</strong>, not from a peg maintained by arbitrage against a vault.</p>
+<p>The open question we explore here: <strong>can the P-leg curve be replicated with binary prediction markets that already trade on-chain?</strong></p>
+<hr />
+<h2 id="the-target-payoff">The Target Payoff</h2>
+<p>The design goal is a token whose USD value remains approximately flat as ETH spot moves within a target band.</p>
+<p>The P holder's claim is the lower, flattening portion of the ETH diagonal. In USD terms, value increases with ETH price at low spot levels, then levels off — the flat tail is what produces stablecoin-like behavior.</p>
+<p><img alt="Vitalik payoff diagram" src="stablecoin-via-pms-images/tweet2-01-vitalik-payoff.png" /></p>
+<p><em>Figure 1. Vitalik's payoff decomposition. The N holder retains full ETH upside (diagonal). The P holder's USD value saturates (concave curve). The flat tail on the P leg is the stable region.</em></p>
+<hr />
+<h2 id="prediction-markets-produce-the-same-curve-family">Prediction Markets Produce the Same Curve Family</h2>
+<p>Before a binary market resolves, a YES token does not discontinuously jump from $0 to $1 at the strike. Its live price equals implied probability — a smooth "soft step" that sharpens into a hard step only as expiry approaches (<span class="arithmatex">\(\tau \to 0\)</span>).</p>
+<p>For a market of the form "ETH ≥ K at time T," the YES price tracks:</p>
+<div class="arithmatex">\[q(S) \approx P(\text{ETH}_T \geq K)\]</div>
+<p><img alt="PM soft step vs Vitalik P-holder curve" src="stablecoin-via-pms-images/tweet2-02-pm-soft-step.png" /></p>
+<p><em>Figure 2. Comparison of Vitalik's P-holder curve (left) with a prediction-market YES token price before resolution (right). The soft step is the same functional family as the saturating stable leg. Stacking multiple such curves at different strikes reconstructs the full payoff.</em></p>
+<hr />
+<h2 id="building-block-a-single-binary">Building Block: A Single Binary</h2>
+<p>Consider one market:</p>
+<p><strong>"Will ETH ≥ $1,000 on 01.07.2026?"</strong></p>
+<p>At expiry the YES token pays $0 below the strike and $1 at or above — a single hard step.</p>
+<p><img alt="Single YES token step payoff" src="stablecoin-via-pms-images/tweet3-01-single-yes-step.png" /></p>
+<p><em>Figure 3. Payoff of one YES token at strike K = $1,000: zero on [0, 1000), one on [1000, ∞).</em></p>
+<p>One binary alone is insufficient. It becomes useful as a <strong>building block</strong> when combined with others.</p>
+<hr />
+<h2 id="reconstruction-stacked-strikes">Reconstruction: Stacked Strikes</h2>
+<p>With ETH at $2,000, a basket can hold YES tokens at rising strikes ($1,000, $1,500, $2,000, …) with decreasing weights at higher strikes.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Basket behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Before expiry</strong></td>
+<td>Each leg is a soft sigmoid <span class="arithmatex">\(q_i(S)\)</span>. The weighted sum <span class="arithmatex">\(\sum w_i \cdot q_i(S)\)</span> is a smooth, saturating curve.</td>
+</tr>
+<tr>
+<td><strong>At maturity</strong></td>
+<td>Each sigmoid collapses to a hard step. The sum becomes a staircase.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Stacked YES sigmoids" src="stablecoin-via-pms-images/tweet4-01-stacked-sigmoids.png" /></p>
+<p><em>Figure 4. Weighted sum of YES-token prices before expiry. Individual legs are soft steps; their sum matches Vitalik's saturating P payoff. Shrinking weights at higher strikes produce the flat tail. At maturity, each leg resolves to a hard step and the sum becomes a staircase.</em></p>
+<hr />
+<h2 id="worked-example-basket-behavior-across-spot-moves">Worked Example: Basket Behavior Across Spot Moves</h2>
+<p>Assume a basket marked near $1 with ETH at $2,000 and strikes placed below spot (approximately $1,000–$1,500).</p>
+<table>
+<thead>
+<tr>
+<th>ETH spot</th>
+<th>Basket USD mark</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$3,000</td>
+<td>~$1</td>
+<td>Stable leg has saturated; holder forfeits further ETH upside</td>
+</tr>
+<tr>
+<td>$1,200</td>
+<td>~$1</td>
+<td>Strike buffer still intact</td>
+</tr>
+<tr>
+<td>Below strikes</td>
+<td>→ $0</td>
+<td>Basket loses stable behavior; payoff becomes ETH-like on the downside</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Above the strike ladder, the basket is stable. Below it, the holder bears ETH downside.</strong> This is the fundamental tradeoff of the construction.</p>
+<hr />
+<h2 id="active-management-requirements">Active Management Requirements</h2>
+<p>Unlike a static options portfolio, a prediction-market basket requires ongoing maintenance:</p>
+<ol>
+<li><strong>Downward drift</strong> — If ETH approaches the strike ladder, strikes must be rolled lower to rebuild the buffer before the peg slips.</li>
+<li><strong>Upward drift</strong> — If ETH moves far above the ladder, strikes should be re-centered higher to avoid leaving upside on the table.</li>
+<li><strong>Expiry rolls</strong> — Binary markets have fixed maturities. Positions must be rolled forward; each rebalance incurs trading fees.</li>
+</ol>
+<p>CDP-based stablecoins carry their own maintenance burden (liquidation risk, governance, oracle lag). This design <strong>substitutes</strong> those risks for active strike management and roll costs. Neither approach is passive.</p>
+<hr />
+<h2 id="stability-intuition-derivative-goes-to-zero">Stability Intuition: Derivative Goes to Zero</h2>
+<p>The stable "feel" of the P leg can be understood through its slope with respect to ETH spot.</p>
+<p>On Vitalik's curve, the derivative decays toward zero in the flat tail — USD value barely moves when ETH rises further. The PM basket exhibits the same property: binary deltas shrink as spot moves above the strike ladder.</p>
+<p><img alt="Derivative and binary deltas" src="stablecoin-via-pms-images/tweet7-01-derivative-deltas.png" /></p>
+<p><em>Figure 5. Left: derivative of Vitalik's payoff, decaying to zero in the flat region. Right: <span class="arithmatex">\(\partial/\partial S \sum w_i \cdot \mathbf{1}\{S \geq K_i\} = \sum w_i \cdot \delta(S - K_i)\)</span> — impulses at each strike whose smoothed envelope reproduces the same decaying slope.</em></p>
+<p>The basket achieves "almost flat" USD sensitivity in the target band. Converting that into a <strong>hard $1 peg</strong> — exact rather than approximate — remains an open engineering problem.</p>
+<hr />
+<h2 id="implications">Implications</h2>
+<p>A weighted basket of YES outcome tokens from live prediction markets can approximate a <strong>debt-free, stablecoin-like payoff</strong> without a CDP, liquidations, or collateral ratios.</p>
+<p>Whether this is a viable product depends on parameters we have not yet fully quantified:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strike spacing</strong></td>
+<td>Too wide → peg slips between strikes; too narrow → more legs, more fees</td>
+</tr>
+<tr>
+<td><strong>Oracle risk</strong></td>
+<td>Resolution depends on correct ETH price at expiry</td>
+</tr>
+<tr>
+<td><strong>Fee drag</strong></td>
+<td>Rolling and rebalancing across many binaries compounds trading costs</td>
+</tr>
+<tr>
+<td><strong>Liquidity depth</strong></td>
+<td>Thin markets at far strikes widen effective spreads</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="whats-next">What's Next</h2>
+<p>We are currently working through the following:</p>
+<ol>
+<li><strong>Backtests</strong> — Simulate basket marks and rebalancing costs across historical ETH paths</li>
+<li><strong>Strike calibration</strong> — Quantify spacing and weight schedules that minimize peg deviation</li>
+<li><strong>Fee sensitivity</strong> — Model break-even fee thresholds against CDP stablecoin carry costs</li>
+</ol>
+<p><strong>→ Primary reference:</strong> <a href="https://ethresear.ch/t/building-index-tracking-assets-on-top-of-debt/25036">Building index-tracking assets on top of options instead of debt</a> (Vitalik Buterin, ethresear.ch)</p>
+<hr />
+<p><em>Charts recreated from Vitalik's article figure. The derivative panel in Figure 5 is the analytical derivative of that curve.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

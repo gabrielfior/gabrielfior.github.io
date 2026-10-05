@@ -1,0 +1,680 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How prediction markets could allocate parliamentary budget earmarks by social impact">
+      
+      
+      
+        <link rel="canonical" href="https://gabrielfior.github.io/projects/futarchy.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Futarchy for Budget Earmarks - Gabriel Fior</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#futarchy-allocating-budget-earmarks-by-social-impact" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Gabriel Fior" class="md-header__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gabriel Fior
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Futarchy for Budget Earmarks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Gabriel Fior" class="md-nav__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gabriel Fior
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      The solution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#participants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Participants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#market-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Market mechanics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Market mechanics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-each-market-works-a-scalar-market" class="md-nav__link">
+    <span class="md-ellipsis">
+      How each market works (a scalar market)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-worked-return-alice-bets-on-the-willows" class="md-nav__link">
+    <span class="md-ellipsis">
+      A worked return — Alice bets on the willows
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">English</label><label for="__tabbed_1_2">Português</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h1 id="futarchy-allocating-budget-earmarks-by-social-impact">Futarchy: Allocating Budget Earmarks by Social Impact</h1>
+<blockquote>
+<p><strong>tl;dr:</strong> Brazil's federal government commits roughly R$25 billion a year through <em>emendas parlamentares</em> — discretionary budget earmarks that legislators direct to specific recipients. In practice, much of it is captured or misdirected. This proposes a platform where earmark proposals compete in a prediction market that estimates which one produces the greatest social impact, following Robin Hanson's futarchy principle: <strong>vote on values, bet on beliefs.</strong></p>
+</blockquote>
+<hr />
+<h2 id="the-problem">The problem</h2>
+<p>The purpose of parliamentary budget amendments (<em>emendas parlamentares</em>) is to let politicians at every level — municipal, state, federal — steer executive-branch funds toward specific destinations (NGOs, hospitals, and so on), on the theory that they understand their local base and its needs better than the center does.</p>
+<p>In practice, this is not what happens. Earmarks have increasingly been used illicitly — directed by third parties, siphoned off, or deployed for electoral gain.</p>
+<h2 id="the-solution">The solution</h2>
+<p>A platform where earmark proposals are registered and a prediction market estimates which of them produces the greatest positive impact for society. The idea follows Robin Hanson's principle of <em>futarchy</em> — <strong>"vote on values, but bet on beliefs"</strong>: society democratically defines <em>the metric</em> to maximize (the value), while the market decides <em>which proposal</em> best achieves it (the belief). You don't vote for an earmark — you bet on it.</p>
+<p>As a toy example, assume an administrative body can approve 1 earmark, worth 200,000 reais, and that we have settled on a metric to maximize (a Gini inequality index, the HDI, IDEB — Brazil's basic-education development index — etc.).</p>
+<p>Suppose we have 3 education earmark proposals, all for Hogwarts:</p>
+<ol>
+<li>200,000 reais to buy racing broomsticks</li>
+<li>200,000 reais to buy pumpkin juice for breakfast</li>
+<li>200,000 reais to plant 100 Whomping Willow saplings</li>
+</ol>
+<p>The solution is to create a prediction market for the decision of which earmark to fund (see the figure below) — for example, <em>"What will the IDEB be at the end of 2027 if proposal X is approved?"</em></p>
+<p><div style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif;padding:12px;color:var(--md-typeset-color)">
+<svg viewBox="0 0 760 458" width="100%" style="max-width:760px;height:auto" role="img" aria-label="Line chart: expected 2027 IDEB for each proposal over time. The Whomping Willow saplings rise from ~5.8 to 6.42; pumpkin juice stays around 5.9; racing broomsticks fall to 5.48.">
+  <style>
+    .title { fill: var(--md-typeset-color); font-size: 15px; font-weight: 700; }
+    .lbl { fill: var(--md-typeset-color); font-size: 11px; }
+    .tick { fill: var(--md-default-fg-color--light); font-size: 10px; font-variant-numeric: tabular-nums; }
+    .axtitle { fill: var(--md-default-fg-color--light); font-size: 11px; font-weight: 600; }
+    .grid { stroke: var(--md-default-fg-color--lightest); stroke-width: 1; }
+    .axis { stroke: var(--md-default-fg-color--lightest); stroke-width: 1; }
+    .line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .l1 { stroke: #3b82f6; } .l2 { stroke: #f59e0b; } .l3 { stroke: #10b981; }
+    .m1 { fill: #3b82f6; } .m2 { fill: #f59e0b; } .m3 { fill: #10b981; }
+    .dot { stroke: var(--md-default-bg-color); stroke-width: 1.5; }
+    .end { stroke: var(--md-default-bg-color); stroke-width: 2; }
+  </style>
+  <text class="title" x="70" y="28">Decision market: expected 2027 IDEB by proposal</text>
+  <g transform="translate(70,46)">
+    <line class="l1" x1="0" y1="0" x2="22" y2="0"/><circle class="m1" cx="11" cy="0" r="3.5"/><text class="lbl" x="28" y="4">Racing broomsticks</text>
+    <line class="l2" x1="196" y1="0" x2="218" y2="0"/><circle class="m2" cx="207" cy="0" r="3.5"/><text class="lbl" x="224" y="4">Pumpkin juice</text>
+    <line class="l3" x1="360" y1="0" x2="382" y2="0"/><circle class="m3" cx="371" cy="0" r="3.5"/><text class="lbl" x="388" y="4">Whomping Willow saplings</text>
+  </g>
+  <line class="grid" x1="70" y1="396" x2="600" y2="396"/><line class="grid" x1="70" y1="308" x2="600" y2="308"/><line class="grid" x1="70" y1="220" x2="600" y2="220"/><line class="grid" x1="70" y1="132" x2="600" y2="132"/>
+  <text class="tick" x="60" y="400" text-anchor="end">5.4</text><text class="tick" x="60" y="312" text-anchor="end">5.7</text><text class="tick" x="60" y="224" text-anchor="end">6.0</text><text class="tick" x="60" y="136" text-anchor="end">6.3</text>
+  <line class="axis" x1="70" y1="88" x2="70" y2="396"/><line class="axis" x1="70" y1="396" x2="600" y2="396"/>
+  <text class="axtitle" x="24" y="242" text-anchor="middle" transform="rotate(-90 24 242)">Expected 2027 IDEB</text>
+  <text class="axtitle" x="335" y="450" text-anchor="middle">Date (2026, dd/mm)</text>
+  <text class="tick" x="70" y="412" text-anchor="middle">02/03</text><text class="tick" x="136.25" y="412" text-anchor="middle">09/03</text><text class="tick" x="202.5" y="412" text-anchor="middle">16/03</text><text class="tick" x="268.75" y="412" text-anchor="middle">23/03</text><text class="tick" x="335" y="412" text-anchor="middle">30/03</text><text class="tick" x="401.25" y="412" text-anchor="middle">06/04</text><text class="tick" x="467.5" y="412" text-anchor="middle">13/04</text><text class="tick" x="533.75" y="412" text-anchor="middle">20/04</text><text class="tick" x="600" y="412" text-anchor="middle">27/04</text>
+  <polyline class="line l1" points="70,278.7 136.25,284.5 202.5,296.3 268.75,313.9 335,331.5 401.25,346.1 467.5,357.9 533.75,366.7 600,372.5"/>
+  <polyline class="line l2" points="70,272.8 136.25,269.9 202.5,264.0 268.75,261.1 335,255.2 401.25,252.3 467.5,252.3 533.75,249.3 600,249.3"/>
+  <polyline class="line l3" points="70,281.6 136.25,261.1 202.5,231.7 268.75,199.5 335,170.1 401.25,143.7 467.5,123.2 533.75,108.5 600,96.8"/>
+  <g class="dot m1"><circle cx="70" cy="278.7" r="3.5"/><circle cx="136.25" cy="284.5" r="3.5"/><circle cx="202.5" cy="296.3" r="3.5"/><circle cx="268.75" cy="313.9" r="3.5"/><circle cx="335" cy="331.5" r="3.5"/><circle cx="401.25" cy="346.1" r="3.5"/><circle cx="467.5" cy="357.9" r="3.5"/><circle cx="533.75" cy="366.7" r="3.5"/></g>
+  <g class="dot m2"><circle cx="70" cy="272.8" r="3.5"/><circle cx="136.25" cy="269.9" r="3.5"/><circle cx="202.5" cy="264.0" r="3.5"/><circle cx="268.75" cy="261.1" r="3.5"/><circle cx="335" cy="255.2" r="3.5"/><circle cx="401.25" cy="252.3" r="3.5"/><circle cx="467.5" cy="252.3" r="3.5"/><circle cx="533.75" cy="249.3" r="3.5"/></g>
+  <g class="dot m3"><circle cx="70" cy="281.6" r="3.5"/><circle cx="136.25" cy="261.1" r="3.5"/><circle cx="202.5" cy="231.7" r="3.5"/><circle cx="268.75" cy="199.5" r="3.5"/><circle cx="335" cy="170.1" r="3.5"/><circle cx="401.25" cy="143.7" r="3.5"/><circle cx="467.5" cy="123.2" r="3.5"/><circle cx="533.75" cy="108.5" r="3.5"/></g>
+  <circle class="end m1" cx="600" cy="372.5" r="5"/><circle class="end m2" cx="600" cy="249.3" r="5"/><circle class="end m3" cx="600" cy="96.8" r="5"/>
+  <text class="lbl" x="612" y="100" font-weight="600">Willow <tspan class="tick">6.42</tspan></text>
+  <text class="lbl" x="612" y="253" font-weight="600">Juice <tspan class="tick">5.90</tspan></text>
+  <text class="lbl" x="612" y="376" font-weight="600">Brooms <tspan class="tick">5.48</tspan></text>
+</svg>
+</div></p>
+<p><em>Each line is a conditional market — "What will the IDEB be at the end of 2027 if proposal X is approved?". The price of each contract is the IDEB the market expects under that proposal; as trading proceeds the estimates diverge, and the proposal with the highest expected IDEB (here, the Whomping Willow saplings, 6.42) is the one chosen.</em></p>
+<h2 id="participants">Participants</h2>
+<p>There are several ways to let informed people take part in this market. The main goal is to encourage people with deep knowledge of the metric being optimized and of the context (in this imaginary case, Hogwarts) to participate.</p>
+<p>One option would be to allow buying and selling backed by real currency. This makes for real monetary incentives, but it opens regulatory loopholes and lets agents with more capital manipulate the market.</p>
+<p>A more interesting option is to use play money — fictional, non-transferable — the <a href="https://manifold.markets">Manifold Markets</a> model. There are indications that fictional currency produces forecasts of quality comparable to real money, without the regulatory and capital-manipulation risks.</p>
+<p>Finally, the proposed distribution of capital per participant is:</p>
+<ul>
+<li>Every Brazilian holding a CPF (taxpayer ID) can trade in the markets</li>
+<li>Each participant starts with 100 galleons</li>
+<li>By taking part in the platform and contributing positively to earmark decisions (i.e. betting correctly), a participant grows their galleon balance and, with it, their power to influence decisions</li>
+</ul>
+<h2 id="market-mechanics">Market mechanics</h2>
+<h3 id="how-each-market-works-a-scalar-market">How each market works (a scalar market)</h3>
+<p>Each proposal has its own conditional <strong>scalar market</strong> — "What will the IDEB be in 2027 if this proposal is approved?" The IDEB ranges from 0 to 10, so the market range is <span class="arithmatex">\([x_{min}, x_{max}] = [0, 10]\)</span>.</p>
+<ul>
+<li><strong>Two tokens per market:</strong> <code>UP</code> (a bet that the IDEB ends up <em>high</em>) and <code>DOWN</code> (a bet that it ends up <em>low</em>). Minting 1 galleon creates <strong>1 UP + 1 DOWN</strong>; on redemption, <code>UP + DOWN</code> always sum to 1 galleon.</li>
+<li><strong>Price reflects expectation:</strong> the price of the <code>UP</code> token multiplied by the range equals the IDEB the market expects.</li>
+<li><strong>UP and DOWN always sum to 1:</strong> since each minted pair costs 1 galleon and redeems for at most 1 galleon in total, the two prices are complementary — <span class="arithmatex">\(p_{UP} + p_{DOWN} = 1\)</span>. This constraint is what makes the market converge: whoever thinks the IDEB is <strong>underestimated</strong> buys <code>UP</code> (pushing <span class="arithmatex">\(p_{UP}\)</span> up and therefore <span class="arithmatex">\(p_{DOWN}\)</span> down); whoever thinks it is <strong>overestimated</strong> buys <code>DOWN</code>. The equilibrium — the price where buying pressure from both sides cancels out — is the market's IDEB estimate. E.g.: <code>UP</code> at 0.642 and <code>DOWN</code> at 0.358 ⇔ expected IDEB ≈ 6.42.</li>
+<li><strong>Proportional redemption:</strong> when the market resolves with the final IDEB <span class="arithmatex">\(V\)</span>, each token pays</li>
+</ul>
+<div class="arithmatex">\[\text{UP} = \frac{V - x_{min}}{x_{max} - x_{min}} \qquad \text{DOWN} = \frac{x_{max} - V}{x_{max} - x_{min}}\]</div>
+<ul>
+<li><strong>Decision + cancelled bets:</strong> at the end of trading, only the market of the proposal with the highest expected IDEB (the winner) is <em>settled against the measured IDEB</em>. The markets for the other proposals are <strong>cancelled</strong> and the invested amounts are returned to participants.</li>
+</ul>
+<h3 id="a-worked-return-alice-bets-on-the-willows">A worked return — Alice bets on the willows</h3>
+<p>Alice believes the willows will beat the market estimate (6.42), so she buys the <code>UP</code> token of the "willows" market.</p>
+<ol>
+<li>She buys <strong>100 UP</strong> at 0.64 galleon each → she spends <strong>64 galleons</strong>.</li>
+<li>The "willows" proposal wins, is implemented, and at the end of 2027 the IDEB is measured (value V).</li>
+<li>Each <code>UP</code> redeems for <span class="arithmatex">\(V/10\)</span> galleon. Two hypothetical scenarios:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Measured IDEB (<span class="arithmatex">\(V\)</span>)</th>
+<th>Redemption per UP = <span class="arithmatex">\(V/10\)</span></th>
+<th>Total (100 UP)</th>
+<th>Return on the 64 galleons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Positive</td>
+<td>8</td>
+<td>0.80</td>
+<td>80 galleons</td>
+<td><strong>+25%</strong></td>
+</tr>
+<tr>
+<td>Negative</td>
+<td>2</td>
+<td>0.20</td>
+<td>20 galleons</td>
+<td><strong>−69%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Since <code>UP + DOWN = 1</code>, whoever bought <code>DOWN</code> gets exactly the complement (0.20 in the positive scenario, 0.80 in the negative one) — the total redeemed never exceeds the collateral deposited.</p>
+<p>As the table shows, Alice's return depends on how close her bet landed to the realized IDEB: forecasting well is profitable, forecasting badly is costly. It is this reward gradient that leads each participant to reveal, through price, their best estimate of the metric — exactly the information the mechanism wants to extract.</p>
+<h2 id="impact">Impact</h2>
+<p>According to the Tesouro Transparente portal (see references), the federal government commits roughly 25 billion reais a year in earmarks. States and municipalities also have parliamentary-amendment mechanisms — for reference, the state of São Paulo committed 1 billion in earmarks in 2025. So the size of the impact is on the order of tens (possibly hundreds) of billions of reais per year.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Robin Hanson, <em><a href="https://mason.gmu.edu/~rhanson/futarchy.html">Futarchy: Vote Values, But Bet Beliefs</a></em> — the futarchy manifesto: <em>"vote on values, but bet on beliefs"</em>. Representatives define the welfare metric; <em>decision markets</em> (conditional markets) estimate which policy maximizes it, and the one with the highest expected value becomes law.</li>
+<li><a href="https://manifold.markets">Manifold Markets</a> — play-money prediction market platform.</li>
+<li>Painel das Emendas Parlamentares, Tesouro Transparente (Federal Government) — <a href="https://www.tesourotransparente.gov.br/consultas/painel-das-emendas-parlamentares-individuais-e-de-bancada">https://www.tesourotransparente.gov.br/consultas/painel-das-emendas-parlamentares-individuais-e-de-bancada</a></li>
+<li>Emendas Parlamentares, Portal da Transparência (Government of São Paulo) — <a href="https://www.transparencia.sp.gov.br/home/emendasparlamentares">https://www.transparencia.sp.gov.br/home/emendasparlamentares</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<h1 id="futarquia-alocando-emendas-parlamentares-por-impacto-social">Futarquia: Alocando Emendas Parlamentares por Impacto Social</h1>
+<blockquote>
+<p><strong>tl;dr:</strong> O governo federal brasileiro empenha cerca de R$25 bilhões por ano em <em>emendas parlamentares</em> — repasses discricionários que parlamentares direcionam a destinos específicos. Na prática, boa parte é capturada ou desviada. Aqui proponho uma plataforma em que propostas de emenda competem num mercado preditivo que estima qual delas gera o maior impacto social, seguindo o princípio da futarquia de Robin Hanson: <strong>vote nos valores, aposte nas crenças.</strong></p>
+</blockquote>
+<hr />
+<h2 id="o-problema">O problema</h2>
+<p>Objetivo das emendas parlamentares é possibilitar a políticos de diversos níveis (municipal, estadual, federal) direcionar recursos do executivo para destinos específicos (ONGs, hospitais, etc.) por conhecerem melhor a ponta e suas bases eleitorais.</p>
+<p>Isso atualmente não ocorre — emendas em geral vêm sendo usadas de maneira ilícita (direcionadas por terceiros, desviadas, usadas por motivos eleitoreiros, etc.).</p>
+<h2 id="solucao">Solução</h2>
+<p>Plataforma onde propostas de emendas são cadastradas e um mercado preditivo estima qual delas gera maior impacto positivo para a sociedade. A ideia segue o princípio da <em>futarquia</em> de <a href="https://mason.gmu.edu/~rhanson/futarchy.html">Robin Hanson</a> — <strong>"vote nos valores, aposte nas crenças"</strong>: a sociedade define democraticamente <em>a métrica</em> a maximizar (o valor), enquanto o mercado decide <em>qual proposta</em> melhor a atinge (a crença). Não se vota na emenda — aposta-se nela.</p>
+<p>A critério de exemplo, assumimos que um ente administrativo possui capacidade para aprovar 1 emenda, com valor individual de 200 mil reais. Além disso, assumimos uma métrica a ser maximizada (índice Gini de desigualdade, IDH, IDEB, etc.).</p>
+<p>Vamos supor que temos 3 propostas de emendas, todas da área da Educação para a escola de Hogwarts:</p>
+<ol>
+<li>200 mil para comprar vassouras de corrida</li>
+<li>200 mil para comprar suco de abóbora para o café da manhã</li>
+<li>200 mil para plantar 100 mudas de Salgueiro Lutador</li>
+</ol>
+<p>A solução envolve criar um mercado preditivo para essa decisão de qual emenda alocar (vide figura abaixo), por exemplo, <em>"Qual será o IDEB ao final de 2027 se a proposta X for aprovada?"</em>.</p>
+<p><div style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif;padding:12px;color:var(--md-typeset-color)">
+<svg viewBox="0 0 760 458" width="100%" style="max-width:760px;height:auto" role="img" aria-label="Gráfico de linhas: IDEB de 2027 esperado por cada proposta ao longo do tempo. As mudas de Salgueiro Lutador sobem de ~5,8 para 6,42; o suco de abóbora fica em ~5,9; as vassouras de corrida caem para 5,48.">
+  <style>
+    .title { fill: var(--md-typeset-color); font-size: 15px; font-weight: 700; }
+    .lbl { fill: var(--md-typeset-color); font-size: 11px; }
+    .tick { fill: var(--md-default-fg-color--light); font-size: 10px; font-variant-numeric: tabular-nums; }
+    .axtitle { fill: var(--md-default-fg-color--light); font-size: 11px; font-weight: 600; }
+    .grid { stroke: var(--md-default-fg-color--lightest); stroke-width: 1; }
+    .axis { stroke: var(--md-default-fg-color--lightest); stroke-width: 1; }
+    .line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .l1 { stroke: #3b82f6; } .l2 { stroke: #f59e0b; } .l3 { stroke: #10b981; }
+    .m1 { fill: #3b82f6; } .m2 { fill: #f59e0b; } .m3 { fill: #10b981; }
+    .dot { stroke: var(--md-default-bg-color); stroke-width: 1.5; }
+    .end { stroke: var(--md-default-bg-color); stroke-width: 2; }
+  </style>
+  <text class="title" x="70" y="28">Mercado de decisão: IDEB 2027 esperado por proposta</text>
+  <g transform="translate(70,46)">
+    <line class="l1" x1="0" y1="0" x2="22" y2="0"/><circle class="m1" cx="11" cy="0" r="3.5"/><text class="lbl" x="28" y="4">Vassouras de corrida</text>
+    <line class="l2" x1="196" y1="0" x2="218" y2="0"/><circle class="m2" cx="207" cy="0" r="3.5"/><text class="lbl" x="224" y="4">Suco de abóbora</text>
+    <line class="l3" x1="360" y1="0" x2="382" y2="0"/><circle class="m3" cx="371" cy="0" r="3.5"/><text class="lbl" x="388" y="4">Mudas de Salgueiro Lutador</text>
+  </g>
+  <line class="grid" x1="70" y1="396" x2="600" y2="396"/><line class="grid" x1="70" y1="308" x2="600" y2="308"/><line class="grid" x1="70" y1="220" x2="600" y2="220"/><line class="grid" x1="70" y1="132" x2="600" y2="132"/>
+  <text class="tick" x="60" y="400" text-anchor="end">5,4</text><text class="tick" x="60" y="312" text-anchor="end">5,7</text><text class="tick" x="60" y="224" text-anchor="end">6,0</text><text class="tick" x="60" y="136" text-anchor="end">6,3</text>
+  <line class="axis" x1="70" y1="88" x2="70" y2="396"/><line class="axis" x1="70" y1="396" x2="600" y2="396"/>
+  <text class="axtitle" x="24" y="242" text-anchor="middle" transform="rotate(-90 24 242)">IDEB 2027 esperado</text>
+  <text class="axtitle" x="335" y="450" text-anchor="middle">Data (2026)</text>
+  <text class="tick" x="70" y="412" text-anchor="middle">02/03</text><text class="tick" x="136.25" y="412" text-anchor="middle">09/03</text><text class="tick" x="202.5" y="412" text-anchor="middle">16/03</text><text class="tick" x="268.75" y="412" text-anchor="middle">23/03</text><text class="tick" x="335" y="412" text-anchor="middle">30/03</text><text class="tick" x="401.25" y="412" text-anchor="middle">06/04</text><text class="tick" x="467.5" y="412" text-anchor="middle">13/04</text><text class="tick" x="533.75" y="412" text-anchor="middle">20/04</text><text class="tick" x="600" y="412" text-anchor="middle">27/04</text>
+  <polyline class="line l1" points="70,278.7 136.25,284.5 202.5,296.3 268.75,313.9 335,331.5 401.25,346.1 467.5,357.9 533.75,366.7 600,372.5"/>
+  <polyline class="line l2" points="70,272.8 136.25,269.9 202.5,264.0 268.75,261.1 335,255.2 401.25,252.3 467.5,252.3 533.75,249.3 600,249.3"/>
+  <polyline class="line l3" points="70,281.6 136.25,261.1 202.5,231.7 268.75,199.5 335,170.1 401.25,143.7 467.5,123.2 533.75,108.5 600,96.8"/>
+  <g class="dot m1"><circle cx="70" cy="278.7" r="3.5"/><circle cx="136.25" cy="284.5" r="3.5"/><circle cx="202.5" cy="296.3" r="3.5"/><circle cx="268.75" cy="313.9" r="3.5"/><circle cx="335" cy="331.5" r="3.5"/><circle cx="401.25" cy="346.1" r="3.5"/><circle cx="467.5" cy="357.9" r="3.5"/><circle cx="533.75" cy="366.7" r="3.5"/></g>
+  <g class="dot m2"><circle cx="70" cy="272.8" r="3.5"/><circle cx="136.25" cy="269.9" r="3.5"/><circle cx="202.5" cy="264.0" r="3.5"/><circle cx="268.75" cy="261.1" r="3.5"/><circle cx="335" cy="255.2" r="3.5"/><circle cx="401.25" cy="252.3" r="3.5"/><circle cx="467.5" cy="252.3" r="3.5"/><circle cx="533.75" cy="249.3" r="3.5"/></g>
+  <g class="dot m3"><circle cx="70" cy="281.6" r="3.5"/><circle cx="136.25" cy="261.1" r="3.5"/><circle cx="202.5" cy="231.7" r="3.5"/><circle cx="268.75" cy="199.5" r="3.5"/><circle cx="335" cy="170.1" r="3.5"/><circle cx="401.25" cy="143.7" r="3.5"/><circle cx="467.5" cy="123.2" r="3.5"/><circle cx="533.75" cy="108.5" r="3.5"/></g>
+  <circle class="end m1" cx="600" cy="372.5" r="5"/><circle class="end m2" cx="600" cy="249.3" r="5"/><circle class="end m3" cx="600" cy="96.8" r="5"/>
+  <text class="lbl" x="612" y="100" font-weight="600">Salgueiro <tspan class="tick">6,42</tspan></text>
+  <text class="lbl" x="612" y="253" font-weight="600">Suco <tspan class="tick">5,90</tspan></text>
+  <text class="lbl" x="612" y="376" font-weight="600">Vassouras <tspan class="tick">5,48</tspan></text>
+</svg>
+</div></p>
+<p><em>Cada linha é um mercado condicional — "Qual será o IDEB ao final de 2027 se a proposta X for aprovada?". O preço de cada contrato é o IDEB que o mercado espera sob aquela proposta; ao longo da negociação as estimativas divergem, e a proposta com maior IDEB esperado (aqui, as mudas de Salgueiro Lutador, 6,42) é a escolhida.</em></p>
+<h2 id="participantes">Participantes</h2>
+<p>Existem múltiplas formas de permitir que pessoas informadas participem deste mercado. O principal objetivo é incentivar pessoas com conhecimento profundo da métrica a ser otimizada e do contexto (neste caso imaginário, Hogwarts) a participarem deste mercado.</p>
+<p>Uma opção seria permitir operações de compra e venda lastreadas em real. Isso facilita incentivos monetários reais, porém abre brechas regulatórias e permite que agentes com maior disponibilidade de capital manipulem o mercado.</p>
+<p>Uma opção mais interessante seria usar dinheiro fictício, não-transferível — o modelo do <a href="https://manifold.markets">Manifold Markets</a>. Há indícios de que moeda fictícia gera previsões de qualidade comparável à de dinheiro real, sem os riscos regulatórios e de manipulação por capital.</p>
+<p>Finalmente, a proposta de distribuição de capital por participante é:</p>
+<ul>
+<li>Cada brasileiro portador de CPF pode negociar nos mercados</li>
+<li>Cada participante começa com 100 galeões</li>
+<li>Ao participar da plataforma e contribuir positivamente para a tomada de decisões das emendas (i.e. apostar corretamente), o participante aumenta seu saldo de galeões e com isso seu poder de influenciar decisões aumenta</li>
+</ul>
+<h2 id="mecanica-do-mercado">Mecânica do mercado</h2>
+<h3 id="como-cada-mercado-funciona-mercado-escalar">Como cada mercado funciona (mercado escalar)</h3>
+<p>Cada proposta tem seu próprio <strong>mercado escalar</strong> condicional — "Qual será o IDEB em 2027 se esta proposta for aprovada?" O IDEB varia de 0 a 10, então a faixa do mercado é <span class="arithmatex">\([x_{min}, x_{max}] = [0, 10]\)</span>.</p>
+<ul>
+<li><strong>Dois tokens por mercado:</strong> <code>UP</code> (aposta que o IDEB fica <em>alto</em>) e <code>DOWN</code> (aposta que fica <em>baixo</em>). Cunhar ("mint") 1 galeão cria <strong>1 UP + 1 DOWN</strong>; no resgate, <code>UP + DOWN</code> sempre somam 1 galeão.</li>
+<li><strong>O preço reflete a expectativa:</strong> o preço do token <code>UP</code> multiplicado pela faixa equivale ao IDEB esperado pelo mercado.</li>
+<li><strong>UP e DOWN sempre somam 1:</strong> como cada par cunhado custa 1 galeão e resgata no máximo 1 galeão no total, os dois preços são complementares — <span class="arithmatex">\(p_{UP} + p_{DOWN} = 1\)</span>. É essa amarra que faz o mercado convergir: quem acha o IDEB <strong>subestimado</strong> compra <code>UP</code> (empurrando <span class="arithmatex">\(p_{UP}\)</span> para cima e, por consequência, <span class="arithmatex">\(p_{DOWN}\)</span> para baixo); quem o acha <strong>superestimado</strong> compra <code>DOWN</code>. O equilíbrio — o preço onde a pressão de compra dos dois lados se anula — é a estimativa de IDEB do mercado. Ex.: <code>UP</code> a 0,642 e <code>DOWN</code> a 0,358 ⇔ IDEB esperado ≈ 6,42.</li>
+<li><strong>Resgate proporcional:</strong> ao resolver o mercado com o IDEB final <span class="arithmatex">\(V\)</span>, cada token paga</li>
+</ul>
+<div class="arithmatex">\[\text{UP} = \frac{V - x_{min}}{x_{max} - x_{min}} \qquad \text{DOWN} = \frac{x_{max} - V}{x_{max} - x_{min}}\]</div>
+<ul>
+<li><strong>Decisão + apostas canceladas:</strong> ao final da negociação, só o mercado da proposta com maior IDEB esperado (a vencedora) é <em>liquidado contra o IDEB medido</em>. Os mercados das demais propostas são <strong>cancelados</strong> e o valor investido é devolvido aos participantes.</li>
+</ul>
+<h3 id="exemplo-de-retorno-alice-aposta-nos-salgueiros">Exemplo de retorno — Alice aposta nos salgueiros</h3>
+<p>Alice acredita que os salgueiros vão superar a estimativa de mercado (6,42), então compra o token <code>UP</code> do mercado "salgueiros".</p>
+<ol>
+<li>Compra <strong>100 UP</strong> a 0,64 galeão cada → gasta <strong>64 galeões</strong>.</li>
+<li>A proposta "salgueiros" vence, é implementada, e ao final de 2027 o IDEB é medido (valor V).</li>
+<li>Cada <code>UP</code> resgata <span class="arithmatex">\(V/10\)</span> galeão. Dois cenários hipotéticos:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>IDEB medido (<span class="arithmatex">\(V\)</span>)</th>
+<th>Resgate por UP = <span class="arithmatex">\(V/10\)</span></th>
+<th>Total (100 UP)</th>
+<th>Retorno sobre os 64 galeões</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Positivo</td>
+<td>8</td>
+<td>0,80</td>
+<td>80 galeões</td>
+<td><strong>+25%</strong></td>
+</tr>
+<tr>
+<td>Negativo</td>
+<td>2</td>
+<td>0,20</td>
+<td>20 galeões</td>
+<td><strong>−69%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Como <code>UP + DOWN = 1</code>, quem comprou <code>DOWN</code> recebe exatamente o complemento (0,20 no cenário positivo, 0,80 no negativo) — o total resgatado nunca excede o colateral depositado.</p>
+<p>Como mostra a tabela, o retorno de Alice depende de quão perto sua aposta ficou do IDEB realizado: prever bem é lucrativo, prever mal custa caro. É esse gradiente de recompensa que leva cada participante a revelar, via preço, sua melhor estimativa da métrica — exatamente a informação que o mecanismo quer extrair.</p>
+<h2 id="impacto">Impacto</h2>
+<p>De acordo com o portal Tesouro Transparente (vide referências), o governo federal empenha aproximadamente 25 bilhões de reais anualmente em emendas. Estados e municípios também possuem mecanismos de emendas parlamentares — para referência, o estado de São Paulo em 2025 empenhou 1 bilhão em emendas. Então o tamanho do impacto é da ordem de dezenas (possivelmente centenas) de bilhões de reais anualmente.</p>
+<h2 id="referencias">Referências</h2>
+<ul>
+<li>Robin Hanson, <em><a href="https://mason.gmu.edu/~rhanson/futarchy.html">Futarchy: Vote Values, But Bet Beliefs</a></em> — manifesto da futarquia: <em>"vote on values, but bet on beliefs"</em>. Representantes definem a métrica de bem-estar; <em>decision markets</em> (mercados condicionais) estimam qual política a maximiza, e a de maior valor esperado vira lei.</li>
+<li><a href="https://manifold.markets">Manifold Markets</a> — plataforma de mercados preditivos com dinheiro fictício.</li>
+<li>Painel das Emendas Parlamentares, Tesouro Transparente (Governo Federal) — <a href="https://www.tesourotransparente.gov.br/consultas/painel-das-emendas-parlamentares-individuais-e-de-bancada">https://www.tesourotransparente.gov.br/consultas/painel-das-emendas-parlamentares-individuais-e-de-bancada</a></li>
+<li>Emendas Parlamentares, Portal da Transparência (Governo de São Paulo) — <a href="https://www.transparencia.sp.gov.br/home/emendasparlamentares">https://www.transparencia.sp.gov.br/home/emendasparlamentares</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
