@@ -10,7 +10,7 @@ tags:
 
 # Can a smaller model match AWS Strands Decider 2B?
 
-**TL;DR** A 1.12B decision model trained on ~10k rows (Strands used ~123k) scores 167/231 on JevBench, tying Strands Decider 2B. A 3-seed ensemble of the 1.88B version scores 171/231, four decisions ahead. The lead comes from data and ensembling, not architecture, and falls within one standard error. Strands still has better calibration (Brier).
+**TL;DR** A 1.12B decision model trained on ~10k rows (Strands used ~123k) scores 167/231 on JevBench, tying Strands Decider 2B. A 3-seed ensemble of the 1.88B version scores 171/231, four decisions ahead. The lead comes from data and ensembling, not architecture, and falls within one standard error. Strands still has better calibration (Brier). The model is on [Hugging Face](https://huggingface.co/gabrielfior/decider-q2b-1.1b).
 
 ## Why
 
@@ -103,4 +103,4 @@ Caveats:
 - Generated policy and compositional rows may resemble JevBench's policy and routing items in structure. That is a style match, not leakage.
 - I could score only the public split; the private split is out of reach.
 
-Code, logs, and all 76 scorings: https://github.com/gabrielfior/decision-models-experiments
+Model: [gabrielfior/decider-q2b-1.1b](https://huggingface.co/gabrielfior/decider-q2b-1.1b) on Hugging Face. Code, logs, and all 76 scorings: https://github.com/gabrielfior/decision-models-experiments
