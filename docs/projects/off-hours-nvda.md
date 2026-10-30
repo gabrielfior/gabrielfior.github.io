@@ -11,7 +11,7 @@ tags:
 
 # Trading NVDA's nights and weekends with prediction markets
 
-> **tl;dr:** 97.6% of SPY's gain since 1993 came while the market was closed. Almost nobody can trade just that part, because it means buying every close and selling every open. We show how numeric prediction markets can package nights and weekends as their own tokens, on any venue built on the Conditional Tokens Framework. One market per official NVDA print turns "Friday close to Monday open" into two tokens. The same markets also give tokenized stocks the price they lack while the exchange sleeps: a live NVDA quote at 3am on a Sunday.
+> **tl;dr:** 97.6% of SPY's gain since 1993 came while the market was closed. Almost nobody can trade just that part, because it means buying every close and selling every open. We show how numeric prediction markets can package nights and weekends as their own tokens, on any venue built on the Conditional Tokens Framework. One market per official NVDA print turns "Friday close to Monday open" into two tokens. The same markets also yield an off-hours NVDA price that does not depend on perpetual-futures venues, as an independent check on the 24/7 oracles that now exist.
 
 ## Where this came from
 
@@ -30,11 +30,13 @@ The paper's first table decomposes SPY's return from January 29, 1993 to Novembe
 
 Holding only the overnight part has been impractical, since it requires trading at every close and every open. A tokenized stock changes this: it trades continuously against a stablecoin, while NYSE still publishes an official open and close. That combination makes the split possible.
 
-## Tokenized Stocks Need a Price That Never Sleeps
+## Tokenized Stocks Need an Independent Off-Hours Price
 
-A tokenized stock trades around the clock, but the exchange price it tracks exists only 6.5 hours per weekday. For the remaining ~135 hours a week, any lending market, margin system or settlement process still needs an answer to "what is NVDA worth right now?". Today that answer is either the thin on-chain pool of the token itself or an oracle feed that stays flat until Monday.
+A tokenized stock trades around the clock, but the exchange price it tracks exists only 6.5 hours per weekday. For the remaining ~135 hours a week, lending markets, margin systems and settlement still need an answer to "what is NVDA worth right now?".
 
-Prediction markets can supply this primitive. Traders stake capital on where the next official print will land, so the market price is a collective estimate with a real cost for being wrong. Each market is tied to a specific, verifiable print, which means the estimate is scored against the outcome every day. This makes prediction markets a natural source for the always-on price index that tokenized stocks lack. The design below produces that index as a by-product of letting people trade nights and weekends.
+The major oracles now cover this. Chainlink launched [24/5 US equities streams](https://www.coindesk.com/business/2026/01/20/chainlink-expands-data-streams-to-cover-multitrillion-dollar-u-s-stock-market) in January 2026 and a [24/7 layer](https://www.cryptotimes.io/2026/10/29/chainlink-adds-24-7-pricing-for-tokenized-assets-as-aave-adopts-feeds/) on October 29, 2026, which after the US close [blends quotes from several perpetual-futures venues](https://crypto-economy.com/chainlink-launches-weekend-tokenized-asset-feeds-powered-by-perpetual-futures) into one reference price. Pyth launched [24/7 indices](https://www.pyth.network/blog/24-7-finance-needs-24-7-price-infrastructure-introducing-pyth-indices) in June 2026, including an NVDA index. The gap has therefore narrowed, and what remains is where the weekend number comes from. It is derived from perpetual-futures venues, so it inherits their liquidity, their funding dynamics and their failure modes.
+
+Prediction markets can supply an independent signal. Traders stake capital on where the next official print will land, so the market price is a collective estimate with a real cost for being wrong. Each market is tied to a specific, verifiable print, so the estimate is scored against the outcome every day. That makes it a natural cross-check for the existing feeds, or a primary source where perpetual-futures quotes are thin. The design below produces it as a by-product of letting people trade nights and weekends.
 
 ## The Paper's Mechanism: One Share, Two Tokens
 
