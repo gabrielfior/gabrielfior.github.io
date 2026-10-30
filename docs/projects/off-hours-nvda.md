@@ -318,6 +318,23 @@ flowchart LR
 
 Three measures harden the feed: using the pool's time-weighted price instead of the last trade, seeding liquidity on both sides, and keeping the bounds wide enough that most of the range stays in play. It remains only as reliable as the capital behind it, since a thin pool is cheap to move and a move is read as a price.
 
+## Prediction Markets vs Perpetuals
+
+Perpetual futures are the main alternative for off-hours exposure to stocks. On Hyperliquid, HIP-3 markets grew from about 2% of perp volume at the start of 2026 to [roughly half by mid-July](https://www.theblock.co/news/defi/2026-07-13-hyperliquid-hip-3-markets-surge-50-perp-volume-onchain-stock-trading-grows-408064), and NVDA is reported as the [largest stock market there](https://memeburn.com/tokenized-stock-objections-hand-hyperliquids-perps-an-edge/), at about $2.5B over 30 days (a secondary source). These markets stay open on weekends, so the weekend price is set by traders guessing where the stock will reopen, with [wider spreads and no traditional circuit breakers](https://finance.yahoo.com/markets/crypto/articles/hyperliquid-hip-3-volume-nears-130300748.html). Chainlink's weekend layer then reads these perp quotes (see above), so perps are both the main venue and the main price source.
+
+On the spot side, Chainlink supplies the pricing for tokenized stocks: [feeds for Ondo's tokenized equities on Ethereum](https://cointelegraph.com/news/ondo-integrates-chainlink-data-feeds-for-tokenized-stocks-on-ethereum-mainnet), so they can be used as DeFi collateral, and 24/5 Data Streams used by [Ondo, xStocks, Robinhood and Coinbase](https://www.chaincatcher.com/en/article/2300040). Most of these tokens are closed to US persons.
+
+| | Perpetuals | Prediction markets (this design) |
+|---|---|---|
+| Leverage | High, often 10x or more | Set by the range, about 2× here |
+| Liquidity | Deep books, tight spreads on the largest markets | Thin, and each trade is two swaps |
+| Loss | Liquidation risk, funding costs | Capped at the premium, no funding |
+| Window exposure | Open at the close, exit at the open, paying spread twice | Exact: the payout is defined on the official prints |
+| Weekend price | Set by perp traders, wider spreads | Capital staked on the official Monday open |
+| Settlement | Continuous, venue mark price | Official print, after a dispute window |
+
+Perpetuals suit a leveraged directional view. Prediction markets suit paying for exactly the overnight or weekend move with a bounded loss. They also complement each other: perps can hedge a prediction-market liquidity provider, and the prediction-market price is an independent check on perp-derived feeds.
+
 ## Risks
 
 - **Out of range.** If the print lands outside the bounds, the payout saturates at the edge and the token stops tracking the price. Mitigation: wide bounds, and new markets each term.
