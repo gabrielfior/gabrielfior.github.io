@@ -1,0 +1,1010 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Splitting NVDA into an overnight bet and a trading-day bet using numeric prediction markets, and reading a live price from them">
+      
+      
+      
+        <link rel="canonical" href="https://gabrielfior.github.io/projects/off-hours-nvda.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Trading NVDA's nights and weekends with prediction markets - Gabriel Fior</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#trading-nvdas-nights-and-weekends-with-prediction-markets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Gabriel Fior" class="md-header__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gabriel Fior
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Trading NVDA's nights and weekends with prediction markets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Gabriel Fior" class="md-nav__button md-logo" aria-label="Gabriel Fior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gabriel Fior
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-came-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where this came from
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-most-of-the-return-happens-overnight" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Problem: Most of the Return Happens Overnight
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenized-stocks-need-an-independent-off-hours-price" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenized Stocks Need an Independent Off-Hours Price
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-papers-mechanism-one-share-two-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Paper's Mechanism: One Share, Two Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prior-art-what-exists-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prior Art: What Exists Today
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venue-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Venue Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Venue Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collateral" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collateral
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-idea-one-market-per-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Idea: One Market per Print
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-window-is-two-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Window Is Two Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-one-weekend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked Example: One Weekend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-price-feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Price Feed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-markets-vs-perpetuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prediction Markets vs Perpetuals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="trading-nvdas-nights-and-weekends-with-prediction-markets">Trading NVDA's nights and weekends with prediction markets</h1>
+<blockquote>
+<p><strong>tl;dr:</strong> 97.6% of SPY's gain since 1993 came while the market was closed. Almost nobody can trade just that part, because it means buying every close and selling every open. We show how numeric prediction markets can package nights and weekends as their own tokens, on any venue built on the Conditional Tokens Framework. One market per official NVDA print turns "Friday close to Monday open" into two tokens. The same markets also yield an off-hours NVDA price that does not depend on perpetual-futures venues, as an independent check on the 24/7 oracles that now exist.</p>
+</blockquote>
+<h2 id="where-this-came-from">Where this came from</h2>
+<p><a href="https://x.com/0xbeans/status/2115423663231303727?a=xQLs-FIw5m-6eyeljQc&amp;s=20">0xbeans shared</a> a paper, <em>Isolated Exposure Tokens</em> (The Standard Reserve, October 2026), which splits a tokenized stock into two tokens: one captures the overnight move, the other the trading-day move. The goal here is to build the same mechanism on top of prediction markets and to reproduce the paper's worked example, which starts at $160 and evolves over a few days.</p>
+<h2 id="the-problem-most-of-the-return-happens-overnight">The Problem: Most of the Return Happens Overnight</h2>
+<p>The paper's first table decomposes SPY's return from January 29, 1993 to November 15, 2025 into the part earned from each close to the next open and the part earned from each open to the close.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Overnight only</th>
+<th>Intraday only</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cumulative return</td>
+<td>+1,105.62%</td>
+<td>+26.84%</td>
+</tr>
+<tr>
+<td>$10,000 at the start</td>
+<td>$120,562</td>
+<td>$12,684</td>
+</tr>
+<tr>
+<td>Sharpe ratio</td>
+<td>0.769</td>
+<td>0.124</td>
+</tr>
+<tr>
+<td>Share of total gain</td>
+<td>97.6%</td>
+<td>2.4%</td>
+</tr>
+</tbody>
+</table>
+<p>Holding only the overnight part has been impractical, since it requires trading at every close and every open. A tokenized stock changes this: it trades continuously against a stablecoin, while NYSE still publishes an official open and close. That combination makes the split possible.</p>
+<h2 id="tokenized-stocks-need-an-independent-off-hours-price">Tokenized Stocks Need an Independent Off-Hours Price</h2>
+<p>A tokenized stock trades around the clock, but the exchange price it tracks exists only 6.5 hours per weekday. For the remaining ~135 hours a week, lending markets, margin systems and settlement still need an answer to "what is NVDA worth right now?".</p>
+<p>The major oracles now cover this. Chainlink launched <a href="https://www.coindesk.com/business/2026/01/20/chainlink-expands-data-streams-to-cover-multitrillion-dollar-u-s-stock-market">24/5 US equities streams</a> in January 2026 and a <a href="https://www.cryptotimes.io/2026/10/29/chainlink-adds-24-7-pricing-for-tokenized-assets-as-aave-adopts-feeds/">24/7 layer</a> on October 29, 2026, which after the US close <a href="https://crypto-economy.com/chainlink-launches-weekend-tokenized-asset-feeds-powered-by-perpetual-futures">blends quotes from several perpetual-futures venues</a> into one reference price. Pyth launched <a href="https://www.pyth.network/blog/24-7-finance-needs-24-7-price-infrastructure-introducing-pyth-indices">24/7 indices</a> in June 2026, including an NVDA index. The gap has therefore narrowed, and what remains is where the weekend number comes from. It is derived from perpetual-futures venues, so it inherits their liquidity, their funding dynamics and their failure modes.</p>
+<p>Prediction markets can supply an independent signal. Traders stake capital on where the next official print will land, so the market price is a collective estimate with a real cost for being wrong. Each market is tied to a specific, verifiable print, so the estimate is scored against the outcome every day. That makes it a natural cross-check for the existing feeds, or a primary source where perpetual-futures quotes are thin. The design below produces it as a by-product of letting people trade nights and weekends.</p>
+<h2 id="the-papers-mechanism-one-share-two-tokens">The Paper's Mechanism: One Share, Two Tokens</h2>
+<p>We call the two windows OVERNIGHT (a close to the next open, weekends included) and SESSION (an open to that day's close).</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Series start&lt;br/&gt;$160"] --&gt;|"overnight +$12"| B["Friday open&lt;br/&gt;$172"]
+    B --&gt;|"session -$6"| C["Friday close&lt;br/&gt;$166"]
+    C --&gt;|"weekend +$12"| D["Monday open&lt;br/&gt;$178"]
+    D --&gt;|"session -$8"| E["Monday close&lt;br/&gt;$170"]</code></pre>
+<p>In the paper, one share is split into two tokens. Each token carries a dollar ledger that starts at half the share price. At each official print, the window that just ended adds its dollar move to its own ledger, and the other ledger is unchanged.</p>
+<pre class="mermaid"><code>flowchart TD
+    S["1 NVDA share&lt;br/&gt;price P"] --&gt;|"split"| N["OVERNIGHT token&lt;br/&gt;ledger L_N, starts at P/2"]
+    S --&gt;|"split"| D["SESSION token&lt;br/&gt;ledger L_S, starts at P/2"]
+    N --&gt; R["L_N + L_S = P&lt;br/&gt;always"]
+    D --&gt; R
+    R --&gt;|"redeem the pair"| S</code></pre>
+<p>The paper's worked example, starting from $160:</p>
+<table>
+<thead>
+<tr>
+<th>Print</th>
+<th>Price</th>
+<th>Move</th>
+<th>OVERNIGHT</th>
+<th>SESSION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Series start</td>
+<td>$160</td>
+<td></td>
+<td>$80</td>
+<td>$80</td>
+</tr>
+<tr>
+<td>Friday open</td>
+<td>$172</td>
+<td>+$12 overnight</td>
+<td>$92</td>
+<td>$80</td>
+</tr>
+<tr>
+<td>Friday close</td>
+<td>$166</td>
+<td>-$6 session</td>
+<td>$92</td>
+<td>$74</td>
+</tr>
+<tr>
+<td>Monday open</td>
+<td>$178</td>
+<td>+$12 weekend</td>
+<td>$104</td>
+<td>$74</td>
+</tr>
+<tr>
+<td>Monday close</td>
+<td>$170</td>
+<td>-$8 session</td>
+<td>$104</td>
+<td>$66</td>
+</tr>
+</tbody>
+</table>
+<p><svg viewBox="0 0 640 300" role="img" aria-label="Line chart of the OVERNIGHT and SESSION ledgers at each print" style="width:100%;max-width:640px;height:auto;font-family:inherit">
+<title>The two ledgers (paper's example)</title>
+<g stroke="currentColor" stroke-opacity="0.15"><line x1="50" y1="250.0" x2="610" y2="250.0"/><line x1="50" y1="206.0" x2="610" y2="206.0"/><line x1="50" y1="162.0" x2="610" y2="162.0"/><line x1="50" y1="118.0" x2="610" y2="118.0"/><line x1="50" y1="74.0" x2="610" y2="74.0"/><line x1="50" y1="30.0" x2="610" y2="30.0"/></g>
+<line x1="50" y1="250" x2="610" y2="250" stroke="currentColor" stroke-opacity="0.5"/>
+<rect x="190" y="12" width="12" height="12" fill="#6366f1"/><text x="208" y="23" font-size="13" fill="currentColor">OVERNIGHT ledger</text>
+<rect x="350" y="12" width="12" height="12" fill="#f59e0b"/><text x="368" y="23" font-size="13" fill="currentColor">SESSION ledger</text>
+<text x="630" y="23" font-size="13" text-anchor="end" fill="currentColor">values in USD</text>
+<g font-size="13" text-anchor="end" fill="currentColor"><text x="42" y="254.0">60</text><text x="42" y="210.0">70</text><text x="42" y="166.0">80</text><text x="42" y="122.0">90</text><text x="42" y="78.0">100</text><text x="42" y="34.0">110</text></g>
+<polyline points="80,162.0 200,162.0 320,188.4 440,188.4 560,223.6" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="80,162.0 200,109.2 320,109.2 440,56.4 560,56.4" fill="none" stroke="#6366f1" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="80" cy="162.0" r="6" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="80" cy="162.0" r="6" fill="#6366f1" stroke="#fff" stroke-width="2"/>
+<text x="80" y="150.0" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">80</text>
+<circle cx="200" cy="162.0" r="6" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="200" cy="109.2" r="6" fill="#6366f1" stroke="#fff" stroke-width="2"/>
+<text x="200" y="97.2" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">92</text>
+<text x="200" y="186.0" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">80</text>
+<circle cx="320" cy="188.4" r="6" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="320" cy="109.2" r="6" fill="#6366f1" stroke="#fff" stroke-width="2"/>
+<text x="320" y="97.2" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">92</text>
+<text x="320" y="212.4" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">74</text>
+<circle cx="440" cy="188.4" r="6" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="440" cy="56.4" r="6" fill="#6366f1" stroke="#fff" stroke-width="2"/>
+<text x="440" y="44.4" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">104</text>
+<text x="440" y="212.4" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">74</text>
+<circle cx="560" cy="223.6" r="6" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="560" cy="56.4" r="6" fill="#6366f1" stroke="#fff" stroke-width="2"/>
+<text x="560" y="44.4" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">104</text>
+<text x="560" y="247.6" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">66</text>
+<g font-size="13" text-anchor="middle" fill="currentColor"><text x="80" y="272">Start</text><text x="200" y="272">Fri open</text><text x="320" y="272">Fri close</text><text x="440" y="272">Mon open</text><text x="560" y="272">Mon close</text></g>
+</svg></p>
+<p>The two ledgers sum to the share price at every print (104 + 66 = 170). There is no lender, no margin and no liquidation: a ledger moves by dollars and never compounds.</p>
+<h2 id="prior-art-what-exists-today">Prior Art: What Exists Today</h2>
+<p>We reviewed Polymarket's public data on October 30, 2026. It lists many NVDA markets, none of which separate the overnight and trading-day moves.</p>
+<table>
+<thead>
+<tr>
+<th>Market</th>
+<th>What it pays on</th>
+<th>Traded today</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Up or down, daily</td>
+<td>Today's close against the last close</td>
+<td>$36</td>
+</tr>
+<tr>
+<td>Closes above a price, daily</td>
+<td>Whether the close beats a set price</td>
+<td>$99</td>
+</tr>
+<tr>
+<td>Weekly close ranges and "above" bets</td>
+<td>Where Friday's close lands</td>
+<td>$120 and $387</td>
+</tr>
+<tr>
+<td>Weekly and monthly "hit" markets</td>
+<td>Whether NVDA touches a price</td>
+<td>$3,949 and $137,349</td>
+</tr>
+<tr>
+<td>Month-end close above a price</td>
+<td>Whether October ends above a set price</td>
+<td>$3,220</td>
+</tr>
+</tbody>
+</table>
+<p>The daily up-or-down market compares close to close, so it merges the overnight and intraday moves into a single outcome. No market pays on a dollar move, and none offers a paired exposure. The daily markets are also very thinly traded. We did not review Kalshi.</p>
+<h2 id="venue-requirements">Venue Requirements</h2>
+<p>The design requires a prediction market built on the Conditional Tokens Framework (CTF), which was created by Gnosis. At resolution, CTF takes a list of payout numerators, one per outcome, and pays each token its numerator divided by their sum. This is what makes numeric markets possible. The venue and the chain are left open. The requirements are:</p>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numeric ("scalar") markets, or a custom resolver that reports payout numbers</td>
+<td>Each print pays in proportion to where it lands between two bounds. A venue that only reports win, lose or 50/50 cannot be used without a custom resolver.</td>
+</tr>
+<tr>
+<td>Permissionless market creation</td>
+<td>A keeper must create roughly ten markets per week.</td>
+</tr>
+<tr>
+<td>Configurable bond and dispute window</td>
+<td>A shorter dispute window means faster payouts.</td>
+</tr>
+<tr>
+<td>Outcome tokens tradable in pools or on an order book</td>
+<td>Traders need to buy and sell each leg.</td>
+</tr>
+<tr>
+<td>Stablecoin collateral</td>
+<td>The price feed needs pool prices denominated in dollars.</td>
+</tr>
+</tbody>
+</table>
+<p>A scalar market has two outcomes (LOW and HIGH) and a lower and upper bound. At resolution, the resolver reports payout numerators for LOW, HIGH and INVALID:</p>
+<div class="language-solidity highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">if</span><span class="w"> </span><span class="p">(</span>answer<span class="w"> </span><span class="o">==</span><span class="w"> </span>INVALID_RESULT<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>payouts<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m m-Decimal">0</span><span class="p">,</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">,</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">];</span><span class="w">                       </span><span class="c1">// invalid: LOW and HIGH get nothing</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span><span class="w"> </span><span class="kt">else</span><span class="w"> </span><span class="kt">if</span><span class="w"> </span><span class="p">(</span>answer<span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span>low<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>payouts<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m m-Decimal">1</span><span class="p">,</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">,</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">];</span><span class="w">                       </span><span class="c1">// LOW pays everything</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span><span class="w"> </span><span class="kt">else</span><span class="w"> </span><span class="kt">if</span><span class="w"> </span><span class="p">(</span>answer<span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span>high<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>payouts<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m m-Decimal">0</span><span class="p">,</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">,</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">];</span><span class="w">                       </span><span class="c1">// HIGH pays everything</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span><span class="w"> </span><span class="kt">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span>payouts<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>high<span class="w"> </span><span class="o">-</span><span class="w"> </span>answer<span class="p">,</span><span class="w"> </span>answer<span class="w"> </span><span class="o">-</span><span class="w"> </span>low<span class="p">,</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">];</span><span class="w"> </span><span class="c1">// in range: split by position</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>CTF treats these numbers as ratios, so LOW pays <code>(high − answer) ÷ (high − low)</code> of a dollar and HIGH pays <code>(answer − low) ÷ (high − low)</code>. This sketch reflects how a numeric market is expected to resolve. The actual resolver should be verified on whichever venue is chosen.</p>
+<h3 id="collateral">Collateral</h3>
+<p>The markets use a dollar stablecoin as collateral, so every pool price is denominated in dollars, which the price feed depends on. The paper's share-backed pair is incompatible with this, so the next section describes a simpler structure. If the stablecoin is yield-bearing, pool prices must be converted to dollars at its current rate.</p>
+<h2 id="the-idea-one-market-per-print">The Idea: One Market per Print</h2>
+<p>Every official NVDA print gets its own scalar market, for example "What will NVDA's official open be on Monday?", with bounds roughly 25% either side of the current price. Each market has two tokens whose payouts depend on a single number.</p>
+<p>LOW pays most when the print is low and HIGH pays most when it is high, both in dollars. A print at the lower bound pays LOW in full, and a print at the upper bound pays HIGH in full.</p>
+<h2 id="a-window-is-two-tokens">A Window Is Two Tokens</h2>
+<p>To hold the weekend, buy HIGH on the Monday-open market and LOW on the Friday-close market.</p>
+<pre class="mermaid"><code>flowchart LR
+    M1["Friday close market&lt;br/&gt;(resolved: $166)"] --&gt;|"you hold LOW"| P["Weekend position"]
+    M2["Monday open market&lt;br/&gt;(live until 9:30am)"] --&gt;|"you hold HIGH"| P
+    P --&gt; V["Pays 1 + (Monday open - Friday close) / range"]</code></pre>
+<p>The two payouts sum to <code>1 + (Monday open − Friday close) ÷ (high − low)</code>. The Friday price cancels, leaving the weekend's dollar move divided by the range. This replicates the paper's OVERNIGHT token without holding a share.</p>
+<table>
+<thead>
+<tr>
+<th>Window</th>
+<th>Tokens you hold</th>
+<th>What it pays on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OVERNIGHT</td>
+<td>LOW on the last close, HIGH on the next open</td>
+<td>The move from close to open</td>
+</tr>
+<tr>
+<td>SESSION</td>
+<td>LOW on the open, HIGH on the close</td>
+<td>The move from open to close</td>
+</tr>
+</tbody>
+</table>
+<p>The range sets the leverage. A $1 move pays <code>1 ÷ (high − low)</code> on a cost of about 1, so a range of about half the share price gives roughly the paper's 2×. An $80 range on a $166 stock gives about 2.1×.</p>
+<p>Holding every OVERNIGHT and SESSION bundle across a term, the intermediate markets cancel: each contributes HIGH plus LOW, which pays exactly 1. What remains is HIGH on the last print plus LOW on the first, which is the share's total move. The pair therefore still sums to the share.</p>
+<h2 id="worked-example-one-weekend">Worked Example: One Weekend</h2>
+<p>The OVERNIGHT position from Friday's close to Monday's open, with bounds of $130 to $210 on every market. The price path is illustrative and not market data.</p>
+<p>Three markets are live that weekend. Two form the position, and the third gives a second price, for Monday's close.</p>
+<table>
+<thead>
+<tr>
+<th>Market</th>
+<th>Question</th>
+<th>You hold</th>
+<th>What happens over the weekend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Friday close</td>
+<td>What is NVDA's official close on Friday?</td>
+<td>LOW</td>
+<td>Printed $166. LOW is already worth 0.5500.</td>
+</tr>
+<tr>
+<td>Monday open</td>
+<td>What is NVDA's official open on Monday?</td>
+<td>HIGH</td>
+<td>Trades until the 9:30am ET print.</td>
+</tr>
+<tr>
+<td>Monday close</td>
+<td>What is NVDA's official close on Monday?</td>
+<td>nothing</td>
+<td>Also trades. It becomes the HIGH leg of Monday's SESSION position.</td>
+</tr>
+</tbody>
+</table>
+<p>Each market trades until its print. After the print, an answerer posts the official price and a dispute window runs before payouts. The chart below uses a one-day window as an example, and its length is a design parameter.</p>
+<pre class="mermaid"><code>gantt
+    title Markets live around one weekend (ET)
+    dateFormat YYYY-MM-DD HH:mm
+    axisFormat %a %H:%M
+    section Friday close market
+    Trading until the print           :a1, 2026-10-29 16:00, 2026-10-30 16:00
+    Dispute window (example: 1 day)   :a2, 2026-10-30 16:30, 2026-10-31 16:30
+    section Monday open market
+    Trading until the print           :b1, 2026-10-30 09:30, 2026-11-02 09:30
+    Dispute window (example: 1 day)   :b2, 2026-11-02 10:00, 2026-11-03 10:00
+    section Monday close market
+    Trading until the print           :c1, 2026-10-30 16:00, 2026-11-02 16:00
+    Dispute window (example: 1 day)   :c2, 2026-11-02 16:30, 2026-11-03 16:30</code></pre>
+<p>Price path from Friday's close to Monday's open:</p>
+<table>
+<thead>
+<tr>
+<th>When (ET)</th>
+<th>What happens</th>
+<th>Expected Monday open</th>
+<th>HIGH price</th>
+<th>LOW (Fri close)</th>
+<th>Position value</th>
+<th>Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fri 4:00pm</td>
+<td>Close prints at $166. Buy LOW at 0.5500 and HIGH at 0.4500.</td>
+<td>$166</td>
+<td>0.4500</td>
+<td>0.5500</td>
+<td>1.0000</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>Fri 8:00pm</td>
+<td>After-hours drift up</td>
+<td>$168</td>
+<td>0.4750</td>
+<td>0.5500</td>
+<td>1.0250</td>
+<td>+2.5%</td>
+</tr>
+<tr>
+<td>Sat 12:00pm</td>
+<td>Bad headline</td>
+<td>$163</td>
+<td>0.4125</td>
+<td>0.5500</td>
+<td>0.9625</td>
+<td>-3.8%</td>
+</tr>
+<tr>
+<td>Sun 6:00pm</td>
+<td>Futures reopen higher</td>
+<td>$172</td>
+<td>0.5250</td>
+<td>0.5500</td>
+<td>1.0750</td>
+<td>+7.5%</td>
+</tr>
+<tr>
+<td>Mon 8:00am</td>
+<td>Pre-market strength</td>
+<td>$177</td>
+<td>0.5875</td>
+<td>0.5500</td>
+<td>1.1375</td>
+<td>+13.8%</td>
+</tr>
+<tr>
+<td>Mon 9:30am</td>
+<td>Open prints at $178. HIGH pays 0.6000.</td>
+<td>$178</td>
+<td>0.6000</td>
+<td>0.5500</td>
+<td>1.1500</td>
+<td>+15.0%</td>
+</tr>
+</tbody>
+</table>
+<p><svg viewBox="0 0 660 300" role="img" aria-label="Expected Monday open over the made-up weekend" style="width:100%;max-width:660px;height:auto;font-family:inherit">
+<title>Expected Monday open, made-up weekend</title>
+<g stroke="currentColor" stroke-opacity="0.15"><line x1="60" y1="250" x2="600" y2="250"/><line x1="60" y1="195" x2="600" y2="195"/><line x1="60" y1="140" x2="600" y2="140"/><line x1="60" y1="85" x2="600" y2="85"/><line x1="60" y1="30" x2="600" y2="30"/></g>
+<line x1="60" y1="250" x2="600" y2="250" stroke="currentColor" stroke-opacity="0.5"/>
+<polyline points="60,184 168,162 276,217 384,118 492,63 600,52" fill="none" stroke="#2e86de" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="60" cy="184" r="6" fill="#2e86de" stroke="#fff" stroke-width="2"/><text x="60" y="170" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">166</text>
+<circle cx="168" cy="162" r="6" fill="#2e86de" stroke="#fff" stroke-width="2"/><text x="168" y="148" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">168</text>
+<circle cx="276" cy="217" r="6" fill="#2e86de" stroke="#fff" stroke-width="2"/><text x="276" y="203" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">163</text>
+<circle cx="384" cy="118" r="6" fill="#2e86de" stroke="#fff" stroke-width="2"/><text x="384" y="104" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">172</text>
+<circle cx="492" cy="63" r="6" fill="#2e86de" stroke="#fff" stroke-width="2"/><text x="492" y="49" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">177</text>
+<circle cx="600" cy="52" r="6" fill="#2e86de" stroke="#fff" stroke-width="2"/><text x="600" y="38" font-size="13" font-weight="600" text-anchor="middle" fill="currentColor">178</text>
+<g font-size="13" text-anchor="end" fill="currentColor"><text x="50" y="254">160</text><text x="50" y="199">165</text><text x="50" y="144">170</text><text x="50" y="89">175</text><text x="50" y="34">180</text></g>
+<g font-size="13" text-anchor="middle" fill="currentColor"><text x="60" y="272">Fri 4pm</text><text x="168" y="272">Fri 8pm</text><text x="276" y="272">Sat noon</text><text x="384" y="272">Sun 6pm</text><text x="492" y="272">Mon 8am</text><text x="600" y="272">Mon 9:30am</text></g>
+<text x="330" y="294" font-size="13" text-anchor="middle" fill="currentColor">Expected Monday open, in USD (made-up weekend)</text>
+</svg></p>
+<p>The final +15.0% is the $12 gap divided by the $80 range, consistent with the paper's overnight move.</p>
+<h2 id="components">Components</h2>
+<pre class="mermaid"><code>flowchart LR
+    K["Market keeper"] --&gt;|"creates one market per print"| F["CTF venue:&lt;br/&gt;market factory"]
+    F --&gt; P["Outcome pools:&lt;br/&gt;LOW and HIGH vs stablecoin"]
+    U["Traders"] --&gt;|"buy and sell windows"| P
+    S["Official print:&lt;br/&gt;Nasdaq or Pyth"] --&gt; A["Answerer"]
+    A --&gt;|"bonded answer"| R["Oracle with&lt;br/&gt;dispute window"]
+    R --&gt; X["Resolver reports payout numbers"]
+    X --&gt; P
+    P --&gt;|"time-weighted price"| O["Price oracle reader"]
+    O --&gt; U</code></pre>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>What it is</th>
+<th>Who provides it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Market creation</td>
+<td>A keeper that creates the markets ahead of each print</td>
+<td>New. Calls the venue's market factory</td>
+</tr>
+<tr>
+<td>Resolution oracle</td>
+<td>Questions answered with the official print, with a dispute process</td>
+<td>Provided by the venue. The questions and an answerer still need to be supplied</td>
+</tr>
+<tr>
+<td>Price oracle</td>
+<td>A reader that turns pool prices into an NVDA price</td>
+<td>New. A small contract and an API</td>
+</tr>
+<tr>
+<td>Liquidity and tokens</td>
+<td>Outcome tokens that trade against the stablecoin</td>
+<td>Provided by the venue. Pools still need to be seeded</td>
+</tr>
+</tbody>
+</table>
+<p>The lifecycle of one market, from creation to payout:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant K as Keeper
+    participant F as Venue (market factory)
+    participant T as Trader
+    participant Pl as Pools
+    participant A as Answerer
+    participant R as Oracle
+    participant X as Resolver
+    K-&gt;&gt;F: create scalar market (question, low, high, bond)
+    F--&gt;&gt;K: new market with LOW and HIGH tokens
+    K-&gt;&gt;Pl: seed both pools
+    T-&gt;&gt;Pl: buy LOW on one market, HIGH on another
+    Note over T,Pl: trading continues until the print
+    A-&gt;&gt;R: post the official print with a bond
+    R--&gt;&gt;R: dispute window (anyone can challenge)
+    X-&gt;&gt;R: read the final answer
+    X-&gt;&gt;F: report payout numbers
+    T-&gt;&gt;F: redeem tokens for the stablecoin</code></pre>
+<p>The states a market passes through:</p>
+<pre class="mermaid"><code>%%{init: {"flowchart": {"nodeSpacing": 50, "rankSpacing": 70, "padding": 12}}}%%
+flowchart LR
+    T["Trading&lt;br/&gt;(created before the print)"] --&gt;|"print happens"| A["Answered&lt;br/&gt;(posted with a bond)"]
+    A --&gt;|"no challenge"| F["Final"]
+    A --&gt;|"challenge"| D["Arbitration"]
+    D --&gt;|"ruling"| F
+    F --&gt;|"payouts reported"| R["Resolved&lt;br/&gt;(tokens redeemed)"]</code></pre>
+<p>A challenge with a bigger bond restarts the dispute window, so an answer can be challenged several times before it goes to arbitration or becomes final.</p>
+<h2 id="the-price-feed">The Price Feed</h2>
+<p>While a market is open, the HIGH token's pool price is the market's estimate of the next print:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>expected price = low + (high - low) x price of HIGH
+</span></code></pre></div>
+<p>At 3am on Saturday, the Monday-open market provides the NVDA price. During the session, the next-close market does. Each market covers the print it settles on, and together they cover every hour.</p>
+<pre class="mermaid"><code>flowchart LR
+    P["HIGH pool&lt;br/&gt;time-weighted price"] --&gt; C["convert to dollars&lt;br/&gt;if the collateral earns yield"]
+    C --&gt; F["low + (high - low) x price"]
+    F --&gt; G{"pool deep enough?"}
+    G --&gt;|"yes"| O["NVDA price + confidence"]
+    G --&gt;|"no"| N["no price reported"]</code></pre>
+<p>Three measures harden the feed: using the pool's time-weighted price instead of the last trade, seeding liquidity on both sides, and keeping the bounds wide enough that most of the range stays in play. It remains only as reliable as the capital behind it, since a thin pool is cheap to move and a move is read as a price.</p>
+<h2 id="prediction-markets-vs-perpetuals">Prediction Markets vs Perpetuals</h2>
+<p>Perpetual futures are the main alternative for off-hours exposure to stocks. On Hyperliquid, HIP-3 markets grew from about 2% of perp volume at the start of 2026 to <a href="https://www.theblock.co/news/defi/2026-07-13-hyperliquid-hip-3-markets-surge-50-perp-volume-onchain-stock-trading-grows-408064">roughly half by mid-July</a>, and NVDA is reported as the <a href="https://memeburn.com/tokenized-stock-objections-hand-hyperliquids-perps-an-edge/">largest stock market there</a>, at about $2.5B over 30 days (a secondary source). These markets stay open on weekends, so the weekend price is set by traders guessing where the stock will reopen, with <a href="https://finance.yahoo.com/markets/crypto/articles/hyperliquid-hip-3-volume-nears-130300748.html">wider spreads and no traditional circuit breakers</a>. Chainlink's weekend layer then reads these perp quotes (see above), so perps are both the main venue and the main price source.</p>
+<p>On the spot side, Chainlink supplies the pricing for tokenized stocks: <a href="https://cointelegraph.com/news/ondo-integrates-chainlink-data-feeds-for-tokenized-stocks-on-ethereum-mainnet">feeds for Ondo's tokenized equities on Ethereum</a>, so they can be used as DeFi collateral, and 24/5 Data Streams used by <a href="https://www.chaincatcher.com/en/article/2300040">Ondo, xStocks, Robinhood and Coinbase</a>. Most of these tokens are closed to US persons.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Perpetuals</th>
+<th>Prediction markets (this design)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leverage</td>
+<td>High, often 10x or more</td>
+<td>Set by the range, about 2× here</td>
+</tr>
+<tr>
+<td>Liquidity</td>
+<td>Deep books, tight spreads on the largest markets</td>
+<td>Thin, and each trade is two swaps</td>
+</tr>
+<tr>
+<td>Loss</td>
+<td>Liquidation risk, funding costs</td>
+<td>Capped at the premium, no funding</td>
+</tr>
+<tr>
+<td>Window exposure</td>
+<td>Open at the close, exit at the open, paying spread twice</td>
+<td>Exact: the payout is defined on the official prints</td>
+</tr>
+<tr>
+<td>Weekend price</td>
+<td>Set by perp traders, wider spreads</td>
+<td>Capital staked on the official Monday open</td>
+</tr>
+<tr>
+<td>Settlement</td>
+<td>Continuous, venue mark price</td>
+<td>Official print, after a dispute window</td>
+</tr>
+</tbody>
+</table>
+<p>Perpetuals suit a leveraged directional view. Prediction markets suit paying for exactly the overnight or weekend move with a bounded loss. They also complement each other: perps can hedge a prediction-market liquidity provider, and the prediction-market price is an independent check on perp-derived feeds.</p>
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Out of range.</strong> If the print lands outside the bounds, the payout saturates at the edge and the token stops tracking the price. Mitigation: wide bounds, and new markets each term.</li>
+<li><strong>Invalid answers.</strong> Venues reserve a third outcome for invalid answers, in which case LOW and HIGH holders receive nothing. Each question must name the exact source and time of the print.</li>
+<li><strong>Thin liquidity.</strong> Polymarket's daily NVDA market has traded only tens of dollars. The price feed is only as good as the capital behind it.</li>
+<li><strong>Slow settling.</strong> A long dispute window delays payouts, although trading continues in the meantime because the print is already known.</li>
+<li><strong>Fees.</strong> Every trade is two swaps, so on a chain with high fees small tickets may not be economical. A minimum trade size would mitigate this.</li>
+</ul>
+<h2 id="next">Next</h2>
+<p>I'm interested in discussing this with anyone working on prediction market venues, tokenized stocks or price oracles. If you have seen something similar, or you see a flaw in the design, I would like to hear from you.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
